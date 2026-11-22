@@ -111,7 +111,7 @@ button:focus-visible{outline:3px solid #fff;outline-offset:3px}
 <div class="modal" id="modal" hidden><img id="shot" alt="Your photo"><span id="st">Press and hold the photo to save it.</span><div class="row"><button id="save">Save to gallery</button><button id="mail">Email to me</button><button id="share">Share</button><button id="close">Back to mirror</button></div></div>
 <button class="tiltbtn" id="tilt" aria-pressed="false">Tilt mirror</button>
 <script>
-var W3_KEY='YOUR_ACCESS_KEY';
+var W3_KEY='7a32a833-3c42-43ee-b1f6-ffb8c575e8f4';
 var NS='http://www.w3.org/2000/svg';
 function el(p,t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
 function use(p,id,x,y,r,s){var u=el(p,'use',{href:'#'+id});u.setAttribute('transform','translate('+x+' '+y+') rotate('+r+') scale('+s+')');return u}
@@ -171,18 +171,12 @@ function saveShot(){
   document.body.appendChild(a);a.click();a.remove();
 }
 document.getElementById('save').addEventListener('click',saveShot);
-function getKey(ask){
-  if(W3_KEY!=='YOUR_ACCESS_KEY')return W3_KEY;
-  var k='';try{k=localStorage.getItem('w3key')||''}catch(e){}
-  if(!k&&ask){k=(prompt('Paste your Web3Forms access key')||'').trim();try{if(k)localStorage.setItem('w3key',k)}catch(e){}}
-  return k;
-}
 async function sendMail(auto){
-  var st=document.getElementById('st'),key=getKey(!auto);
-  if(!key||!blob)return;
+  var st=document.getElementById('st');
+  if(!blob)return;
   st.textContent='Emailing photo...';
   try{
-    var fd=new FormData();fd.append('access_key',key);fd.append('subject','New photo from your Vintage Mirror');
+    var fd=new FormData();fd.append('access_key',W3_KEY);fd.append('subject','New photo from your Vintage Mirror');
     fd.append('from_name','Vintage Mirror');fd.append('message','Photo taken in your vintage mirror.');
     fd.append('attachment',blob,'mirror-photo.jpg');
     var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{Accept:'application/json'},body:fd});

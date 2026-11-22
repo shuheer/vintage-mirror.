@@ -285,6 +285,7 @@
     overflow: visible;
     pointer-events: none;
     z-index: 5;
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.62));
   }
 
   /* Interactive Bottom Sapphire Shutter Gem */
@@ -483,24 +484,6 @@
           <stop offset="100%" stop-color="#041942" stop-opacity="0.45"/>
         </linearGradient>
 
-        <!-- Realistic Specular Metallic Relief + Patina Filter -->
-        <filter id="baroqueGold" x="-12%" y="-12%" width="124%" height="124%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur"/>
-          <feSpecularLighting in="blur" surfaceScale="4.8" specularConstant="1.15" specularExponent="24" lighting-color="#fff2c2" result="spec">
-            <feDistantLight azimuth="232" elevation="46"/>
-          </feSpecularLighting>
-          <feComposite in="spec" in2="SourceAlpha" operator="in" result="specClipped"/>
-          <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="7" result="noise"/>
-          <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0.22  0 0 0 0 0.14  0 0 0 0 0.03  0 0 0 0.28 0" result="patina"/>
-          <feComposite in="patina" in2="SourceAlpha" operator="in" result="patinaClipped"/>
-          <feMerge result="metallic">
-            <feMergeNode in="SourceGraphic"/>
-            <feMergeNode in="patinaClipped"/>
-            <feMergeNode in="specClipped"/>
-          </feMerge>
-          <feDropShadow in="metallic" dx="1.5" dy="4" stdDeviation="3.2" flood-color="#000000" flood-opacity="0.62"/>
-        </filter>
-
         <!-- Sculpted Acanthus Leaf Symbol -->
         <symbol id="acanthus" overflow="visible">
           <path d="M0 0 C7 -9 16 -12 25 -8 C29 -6 34 -2 40 0 C34 2 29 6 25 8 C16 12 7 9 0 0 Z" fill="url(#goldLeaf)" stroke="#382205" stroke-width="0.95"/>
@@ -524,8 +507,8 @@
         </symbol>
       </defs>
 
-      <!-- MAIN GILDED BAROQUE STRUCTURE -->
-      <g filter="url(#baroqueGold)">
+      <!-- MAIN GILDED BAROQUE STRUCTURE (Pure Gradients & Highlight Paths — No Heavy SVG Filters) -->
+      <g>
         <!-- Sculpted Yoke Arms supporting the mirror -->
         <path d="M54 294 C34 426 92 522 200 550 C308 522 366 426 346 294" fill="none" stroke="url(#goldVert)" stroke-width="12.5" stroke-linecap="round"/>
         <path d="M54 294 C34 426 92 522 200 550 C308 522 366 426 346 294" fill="none" stroke="#3a2205" stroke-width="1.2" stroke-dasharray="2.5 5" opacity="0.65"/>
@@ -641,23 +624,302 @@
   }
 
   /* =========================================================================
-     1. PROCEDURALLY POPULATE BAROQUE LEAVES, ROSES, SCROLLS & BELL CHAINS
+     2. PRE-RENDER HIGH-RESOLUTION SVG ASSETS (1200x1920 FRAME + CANDLE)
      ========================================================================= */
-  var deco = document.getElementById('deco');
+  var EXPORT_W = 1200;
+  var EXPORT_H = 1920;
 
-  // Primary ring of sculpted acanthus leaves and vintage roses
-  for (var d = 0; d < 360; d += 10) {
-    var rad = d * Math.PI / 180;
-    var x = CX + 137 * Math.cos(rad);
-    var y = CY + 203 * Math.sin(rad);
-    var tangent = Math.atan2(203 * Math.cos(rad), -137 * Math.sin(rad)) * 180 / Math.PI;
-    var nearPoles = Math.abs(Math.sin(rad));
-    var scale = 0.56 + 0.52 * nearPoles * nearPoles;
+  var frameImg = new Image();
+  var frameReady = new Promise(function (resolve) {
+    try {
+      var clone = document.getElementById('frameSvg').cloneNode(true);
+      clone.setAttribute('width', String(EXPORT_W));
+      clone.setAttribute('height', String(EXPORT_H));
+      // Strip the animated pulse ring so exported photo looks pure & authentic
+      var pulse = clone.querySelector('.pulse');
+      if (pulse) pulse.remove();
+      var svgStr = new XMLSerializer().serializeToString(clone);
+      var blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      frameImg.onload = function () { URL.revokeObjectURL(url); resolve(true); };
+      frameImg.onerror = function () { URL.revokeObjectURL(url); resolve(false); };
+      frameImg.src = url;
+    } catch (e) {
+      resolve(false);
+    }
+  });
 
-    if (d % 30 === 0) {
-      use(deco, 'rose', x, y, tangent, 0.52 + 0.54 * nearPoles * nearPoles);
-    } else {
-      use(deco, 'acanthus', x, y, tangent + (d % 20 ? -24 : 24), scale * 0.78);
+  var candleImg = new Image();
+  var candleReady = new Promise(function (resolve) {
+    try {
+      var cClone = document.getElementById('candleSvg').cloneNode(true);
+      cClone.setAttribute('width', '288');
+      cClone.setAttribute('height', '528');
+      var cStr = new XMLSerializer().serializeToString(cClone);
+      var cBlob = new Blob([cStr], { type: 'image/svg+xml;charset=utf-8' });
+      var cUrl = URL.createObjectURL(cBlob);
+      candleImg.onload = function () { URL.revokeObjectURL(cUrl); resolve(true); };
+      candleImg.onerror = function () { URL.revokeObjectURL(cUrl); resolve(false); };
+      candleImg.src = cUrl;
+    } catch (e) {
+      resolve(false);
+    }
+  });
+
+  /* =========================================================================
+     3. RAW FRONT-CAMERA STREAM (SENSIBLE HD RESOLUTION, ZERO FILTERS)
+     ========================================================================= */
+  var video = document.getElementById('v');
+  var msg = document.getElementById('msg');
+  var goBtn = document.getElementById('go');
+  var flash = document.getElementById('flash');
+
+  async function startCam() {
+    try {
+      var stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: 'user',
+          width: { ideal: 1920 },
+          height: { ideal: 1080 }
+        },
+        audio: false
+      });
+      video.srcObject = stream;
+      video.style.display = 'block';
+      msg.style.display = 'none';
+    } catch (err) {
+      msg.querySelector('span').textContent = 'Camera access was blocked. Allow camera access for this page and try again.';
+      goBtn.textContent = 'Try again';
+    }
+  }
+  goBtn.addEventListener('click', startCam);
+
+  /* =========================================================================
+     4. DIRECT CRASH-PROOF SAVE TO DEVICE (NO PREVIEW MODAL)
+     ========================================================================= */
+  function saveShot(blob) {
+    if (!blob) return;
+    try {
+      var now = new Date();
+      var pad = function (n) { return String(n).padStart(2, '0'); };
+      var filename = 'vintage-mirror-' +
+        now.getFullYear() + pad(now.getMonth() + 1) + pad(now.getDate()) + '-' +
+        pad(now.getHours()) + pad(now.getMinutes()) + pad(now.getSeconds()) + '.jpg';
+
+      var file = new File([blob], filename, { type: 'image/jpeg' });
+      if (/iP(hone|ad|od)/.test(navigator.userAgent) && navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator.share({ files: [file] }).catch(function () {});
+        return;
+      }
+
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+    } catch (err) {
+      // Prevent any share/download error from crashing the page
+    }
+  }
+
+  /* =========================================================================
+     5. FULL-SCENE 1200x1920 MEMORY-SAFE RENDER & CAPTURE
+     ========================================================================= */
+  var isSnapping = false;
+
+  async function snap() {
+    if (!video.srcObject) { startCam(); return; }
+    var vw = video.videoWidth, vh = video.videoHeight;
+    if (!vw || !vh || isSnapping) return;
+    isSnapping = true;
+
+    // Visual shutter flash
+    flash.classList.add('on');
+    setTimeout(function () { flash.classList.remove('on'); }, 70);
+
+    var canvas = null;
+    try {
+      await Promise.all([frameReady, candleReady]);
+
+      canvas = document.createElement('canvas');
+      canvas.width = EXPORT_W;
+      canvas.height = EXPORT_H;
+      var ctx = canvas.getContext('2d');
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+
+      // --- LAYER 1: Realistic Draped Dark Velvet Curtains ---
+      ctx.fillStyle = '#1a0e0a';
+      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
+
+      // Soft vertical draped velvet folds
+      var foldStep = 3;
+      for (var fx = 0; fx < EXPORT_W; fx += foldStep) {
+        var wave1 = Math.sin(fx * 0.043) * 0.5 + 0.5;
+        var wave2 = Math.sin(fx * 0.102 + 1.2) * 0.5 + 0.5;
+        var foldVal = wave1 * 0.68 + wave2 * 0.32;
+        var r = Math.round(18 + foldVal * 64);
+        var g = Math.round(9 + foldVal * 34);
+        var b = Math.round(7 + foldVal * 24);
+        ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+        ctx.fillRect(fx, 0, foldStep + 1, EXPORT_H);
+      }
+
+      // Soft center gallery spotlight on curtains
+      var topLight = ctx.createRadialGradient(EXPORT_W * 0.5, EXPORT_H * 0.34, 48, EXPORT_W * 0.5, EXPORT_H * 0.38, EXPORT_W * 0.72);
+      topLight.addColorStop(0, 'rgba(225, 175, 105, 0.24)');
+      topLight.addColorStop(0.55, 'rgba(130, 82, 42, 0.08)');
+      topLight.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = topLight;
+      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
+
+      // Warm ambient candlelight radiance cast onto curtain from lower right
+      var candleX = 1074, candleFlameY = 1416;
+      var cGlow = ctx.createRadialGradient(candleX, candleFlameY, 18, candleX, candleFlameY, 630);
+      cGlow.addColorStop(0, 'rgba(255, 204, 108, 0.44)');
+      cGlow.addColorStop(0.32, 'rgba(235, 138, 42, 0.20)');
+      cGlow.addColorStop(0.68, 'rgba(150, 72, 18, 0.06)');
+      cGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = cGlow;
+      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
+
+      // Deep velvet vignette
+      var vig = ctx.createRadialGradient(EXPORT_W * 0.5, EXPORT_H * 0.44, EXPORT_W * 0.28, EXPORT_W * 0.5, EXPORT_H * 0.48, EXPORT_W * 0.92);
+      vig.addColorStop(0, 'rgba(0, 0, 0, 0)');
+      vig.addColorStop(0.62, 'rgba(10, 5, 3, 0.32)');
+      vig.addColorStop(1, 'rgba(5, 2, 1, 0.85)');
+      ctx.fillStyle = vig;
+      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
+
+      // --- LAYER 2: Polished Dark Mahogany / Walnut Vanity Table ---
+      var tableY = Math.round(EXPORT_H * 0.85);
+      var tableH = EXPORT_H - tableY;
+      var tblGrad = ctx.createLinearGradient(0, tableY, 0, EXPORT_H);
+      tblGrad.addColorStop(0, '#6d3a1c');
+      tblGrad.addColorStop(0.16, '#4f2711');
+      tblGrad.addColorStop(0.54, '#331709');
+      tblGrad.addColorStop(1, '#190a03');
+      ctx.fillStyle = tblGrad;
+      ctx.fillRect(0, tableY, EXPORT_W, tableH);
+
+      // Subtle wood grain lines
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(0, tableY, EXPORT_W, tableH);
+      ctx.clip();
+      for (var gy = tableY + 3; gy < EXPORT_H; gy += 6) {
+        ctx.strokeStyle = (gy % 12 === 0) ? 'rgba(255, 195, 125, 0.045)' : 'rgba(12, 4, 1, 0.22)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(0, gy);
+        ctx.bezierCurveTo(EXPORT_W * 0.33, gy + Math.sin(gy * 0.16) * 3, EXPORT_W * 0.66, gy - Math.cos(gy * 0.13) * 3, EXPORT_W, gy);
+        ctx.stroke();
+      }
+      // Tabletop edge bevel highlight
+      ctx.fillStyle = 'rgba(255, 214, 152, 0.32)';
+      ctx.fillRect(0, tableY, EXPORT_W, 3);
+
+      // Warm candlelight sheen on tabletop
+      var tblSheen = ctx.createRadialGradient(candleX, tableY + 54, 12, candleX, tableY + 72, 372);
+      tblSheen.addColorStop(0, 'rgba(255, 196, 108, 0.32)');
+      tblSheen.addColorStop(0.5, 'rgba(200, 118, 44, 0.10)');
+      tblSheen.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = tblSheen;
+      ctx.fillRect(0, tableY, EXPORT_W, tableH);
+      ctx.restore();
+
+      // Soft contact shadow under mirror pedestal base
+      var mScale = 2.73;
+      var mW = 400 * mScale; // 1092
+      var mH = 640 * mScale; // 1747.2
+      var mX = (EXPORT_W - mW) / 2; // 54
+      var mY = 77;
+
+      ctx.save();
+      var mShadow = ctx.createRadialGradient(EXPORT_W / 2, 1785, 24, EXPORT_W / 2, 1785, 336);
+      mShadow.addColorStop(0, 'rgba(0, 0, 0, 0.88)');
+      mShadow.addColorStop(0.52, 'rgba(0, 0, 0, 0.52)');
+      mShadow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.translate(EXPORT_W / 2, 1785);
+      ctx.scale(1, 0.16);
+      ctx.fillStyle = mShadow;
+      ctx.beginPath();
+      ctx.arc(0, 0, 336, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // --- LAYER 3: Glowing Candle on Brass Dish (Right Side of Table) ---
+      if (candleImg.complete && candleImg.naturalWidth) {
+        ctx.drawImage(candleImg, 966, 1392, 216, 396);
+      }
+
+      // --- LAYER 4: RAW Unfiltered Mirrored Camera Feed inside Exact Inner Oval ---
+      var ovalCx = mX + 200 * mScale;
+      var ovalCy = mY + 290 * mScale;
+      var ovalRx = 121 * mScale;
+      var ovalRy = 189 * mScale;
+      var ox = ovalCx - ovalRx;
+      var oy = ovalCy - ovalRy;
+      var ow = ovalRx * 2;
+      var oh = ovalRy * 2;
+
+      var targetAr = ow / oh;
+      var cropW = Math.min(vw, vh * targetAr);
+      var cropH = cropW / targetAr;
+      var srcX = (vw - cropW) / 2;
+      var srcY = (vh - cropH) / 2;
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.ellipse(ovalCx, ovalCy, ovalRx, ovalRy, 0, 0, Math.PI * 2);
+      ctx.clip();
+      ctx.translate(ox + ow, oy);
+      ctx.scale(-1, 1);
+      // Zero filters — completely raw camera capture
+      ctx.drawImage(video, srcX, srcY, cropW, cropH, 0, 0, ow, oh);
+      ctx.restore();
+
+      // --- LAYER 5: Subtle Edge-Only Recessed Glass Bevel Shadow (Face 100% Clear) ---
+      ctx.save();
+      ctx.beginPath();
+      ctx.ellipse(ovalCx, ovalCy, ovalRx, ovalRy, 0, 0, Math.PI * 2);
+      ctx.clip();
+      ctx.translate(ovalCx, ovalCy);
+      ctx.scale(1, ovalRy / ovalRx);
+      var rimShadow = ctx.createRadialGradient(0, 0, ovalRx * 0.87, 0, 0, ovalRx);
+      rimShadow.addColorStop(0, 'rgba(0, 0, 0, 0)');
+      rimShadow.addColorStop(0.65, 'rgba(18, 10, 3, 0.22)');
+      rimShadow.addColorStop(1, 'rgba(10, 5, 1, 0.72)');
+      ctx.fillStyle = rimShadow;
+      ctx.beginPath();
+      ctx.arc(0, 0, ovalRx, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // --- LAYER 6: Full-Resolution Pre-Rendered Baroque Gold Mirror Frame ---
+      if (frameImg.complete && frameImg.naturalWidth) {
+        ctx.drawImage(frameImg, mX, mY, mW, mH);
+      }
+
+      // Export visually lossless 0.95 JPEG directly to device and immediately free canvas RAM
+      canvas.toBlob(function (blob) {
+        try {
+          saveShot(blob);
+        } finally {
+          canvas.width = 0;
+          canvas.height = 0;
+          isSnapping = false;
+        }
+      }, 'image/jpeg', 0.95);
+    } catch (err) {
+      if (canvas) {
+        canvas.width = 0;
+        canvas.height = 0;
+      }
+      isSnapping = false;
     }
   }
 

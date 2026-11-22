@@ -34,7 +34,8 @@ h1{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);left:0;right:
 [hidden]{display:none!important}
 .modal{position:fixed;inset:0;background:#000e;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:16px;text-align:center;font-style:italic}
 .modal img{max-height:66vh;max-width:88vw;border-radius:14px;box-shadow:0 10px 40px #000}
-.modal .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.modal .row{display:flex;gap:10px}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none}}
 video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);display:none;filter:contrast(1.05) saturate(1.05) sepia(.12)}
 .glare{inset:0;background:linear-gradient(112deg,#fff6 0%,#fff0 22%,#fff0 62%,#fff2 78%,#fff0 100%),radial-gradient(ellipse at 50% 50%,#0000 55%,#000a 100%);pointer-events:none;position:absolute}
 svg.fr{left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}
@@ -44,7 +45,7 @@ button:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .tiltbtn{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);left:0;right:0;margin:auto;width:max-content;z-index:4;font-size:14px;padding:8px 18px}
 .chain{transform-box:fill-box;transform-origin:50% 0;animation:sw 3.6s ease-in-out infinite alternate}
 @keyframes sw{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
-@media (prefers-reduced-motion:reduce){.chain,.flame,.pulse{animation:none}.wrap{transition:none}}
+@media (prefers-reduced-motion:reduce){.chain,.flame{animation:none}.wrap{transition:none}}
 </style>
 </head>
 <body>
@@ -83,20 +84,24 @@ button:focus-visible{outline:3px solid #fff;outline-offset:3px}
     </defs>
 
     <g filter="url(#metal)">
+      <!-- yoke arms -->
       <path d="M58 300C38 430 95 520 200 548C305 520 362 430 342 300" fill="none" stroke="url(#gv)" stroke-width="11" stroke-linecap="round"/>
       <path d="M58 300C38 430 95 520 200 548C305 520 362 430 342 300" fill="none" stroke="#3d290a" stroke-width="1" stroke-dasharray="2 5" opacity=".6"/>
       <path d="M52 300l-14-48 22 22zM348 300l14-48-22 22z" fill="url(#g)" stroke="#3d290a"/>
+      <!-- stem + base -->
       <path d="M186 500h28l-5 62h-18z" fill="url(#gv)" stroke="#3d290a"/>
       <ellipse cx="200" cy="540" rx="16" ry="6" fill="url(#g)" stroke="#3d290a"/>
       <path d="M150 600C150 574 178 562 200 562S250 574 250 600C262 604 292 604 296 622C270 636 130 636 104 622C108 604 138 604 150 600Z" fill="url(#g)" stroke="#3d290a" stroke-width="1.5"/>
       <g id="baseDeco"></g>
+      <!-- main ring -->
       <path fill-rule="evenodd" d="M200 75a150 215 0 1 0 .01 0ZM200 100a122 190 0 1 1-.01 0Z" fill="url(#g)" stroke="#3d290a" stroke-width="1.5"/>
       <ellipse cx="200" cy="290" rx="136" ry="203" fill="none" stroke="#3d290a" stroke-width="1" opacity=".6"/>
-      <ellipse cx="200" cy="290" rx="128" ry="196" fill="none" stroke="url(#g)" stroke-width="7" stroke-dasharray="0.1 6.2" stroke-linecap="round"/>
+      <ellipse id="beads" cx="200" cy="290" rx="128" ry="196" fill="none" stroke="url(#g)" stroke-width="7" stroke-dasharray="0.1 6.2" stroke-linecap="round"/>
       <ellipse cx="200" cy="290" rx="146" ry="211" fill="none" stroke="url(#g)" stroke-width="4" stroke-dasharray="0.1 5" stroke-linecap="round"/>
       <ellipse cx="200" cy="290" rx="123" ry="191" fill="none" stroke="#2a1a04" stroke-width="3"/><ellipse cx="200" cy="290" rx="120.5" ry="188.5" fill="none" stroke="#ffe9a0" stroke-width="1.4" opacity=".8"/><g id="deco"></g>
     </g>
 
+    <!-- gems -->
     <g id="gems">
       <ellipse cx="200" cy="82" rx="14" ry="19" fill="url(#g)" stroke="#3d290a" stroke-width="1.5"/>
       <ellipse cx="200" cy="82" rx="9" ry="14" fill="url(#gem)" stroke="#bfefff" stroke-width=".8"/>
@@ -108,14 +113,14 @@ button:focus-visible{outline:3px solid #fff;outline-offset:3px}
     <g id="chains"></g>
   </svg>
 </div>
-<div class="modal" id="modal" hidden><img id="shot" alt="Your photo"><span id="st">Press and hold the photo to save it.</span><div class="row"><button id="save">Save to gallery</button><button id="mail">Email to me</button><button id="share">Share</button><button id="close">Back to mirror</button></div></div>
+<div class="modal" id="modal" hidden><img id="shot" alt="Your photo"><span id="st" hidden></span><div class="row"><button id="save">Save to gallery</button><button id="close">Back to mirror</button></div></div>
 <button class="tiltbtn" id="tilt" aria-pressed="false">Tilt mirror</button>
 <script>
-var W3_KEY='7a32a833-3c42-43ee-b1f6-ffb8c575e8f4';
 var NS='http://www.w3.org/2000/svg';
 function el(p,t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
 function use(p,id,x,y,r,s){var u=el(p,'use',{href:'#'+id});u.setAttribute('transform','translate('+x+' '+y+') rotate('+r+') scale('+s+')');return u}
 var deco=document.getElementById('deco'),CX=200,CY=290;
+// leaves and roses along the ring, denser toward top and bottom
 for(var d=0;d<360;d+=10){
   var t=d*Math.PI/180, x=CX+137*Math.cos(t), y=CY+203*Math.sin(t);
   var tan=Math.atan2(203*Math.cos(t),-137*Math.sin(t))*180/Math.PI;
@@ -124,11 +129,15 @@ for(var d=0;d<360;d+=10){
   else{use(deco,'leaf',x,y,tan+(d%20?-24:24),s*.75)}
 }
 for(var d2=5;d2<360;d2+=10){var t2=d2*Math.PI/180;use(deco,'leaf',CX+147*Math.cos(t2),CY+212*Math.sin(t2),Math.atan2(212*Math.sin(t2),147*Math.cos(t2))*180/Math.PI,.4)}
-[-62,-42,-22,0,22,42,62].forEach(function(a){use(deco,'leaf',200,92,-90+a,1.25-Math.abs(a)/110)});
+// crown fan at the top
+[-62,-42,-22,0,22,42,62].forEach(function(a,i){use(deco,'leaf',200,92,-90+a,1.25-Math.abs(a)/110)});
 [-48,48].forEach(function(a){use(deco,'rose',200+a*1.1,100,0,.9)});
+// bottom cluster
 [-60,-30,30,60].forEach(function(a){use(deco,'leaf',200,492,90+a,1.0)});
 [-34,34].forEach(function(a){use(deco,'rose',200+a*1.25,495,0,.85)});
+// base scallop roses
 [[160,600],[200,606],[240,600],[130,618],[270,618]].forEach(function(p){use(document.getElementById('baseDeco'),'rose',p[0],p[1],0,.7)});
+// hanging chains with bells
 var ch=document.getElementById('chains');
 [[-62,34],[-34,52],[34,52],[62,34]].forEach(function(c,i){
   var a=(90+c[0])*Math.PI/180,x=CX+150*Math.cos(a)*.98,y=CY+211*Math.sin(a)*.98,len=c[1]+8;
@@ -165,18 +174,29 @@ function snap(){
 }
 function saveShot(){
   if(!blob)return;
-  var a=document.createElement('a'),n=new Date(),p=function(x){return String(x).padStart(2,'0')};
-  a.href=URL.createObjectURL(blob);
-  a.download='mirror-'+n.getFullYear()+p(n.getMonth()+1)+p(n.getDate())+'-'+p(n.getHours())+p(n.getMinutes())+p(n.getSeconds())+'.jpg';
+  var n=new Date(),p=function(x){return String(x).padStart(2,'0')};
+  var name='mirror-'+n.getFullYear()+p(n.getMonth()+1)+p(n.getDate())+'-'+p(n.getHours())+p(n.getMinutes())+p(n.getSeconds())+'.jpg';
+  var f=new File([blob],name,{type:'image/jpeg'});
+  if(/iP(hone|ad|od)/.test(navigator.userAgent)&&navigator.canShare&&navigator.canShare({files:[f]})){
+    navigator.share({files:[f]}).catch(function(){});return;
+  }
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;
   document.body.appendChild(a);a.click();a.remove();
 }
 document.getElementById('save').addEventListener('click',saveShot);
+var W3_KEY='7a32a833-3c42-43ee-b1f6-ffb8c575e8f4';
+function getKey(ask){
+  if(W3_KEY)return W3_KEY;
+  var k='';try{k=localStorage.getItem('w3key')||''}catch(e){}
+  if(!k&&ask){k=(prompt('Paste your Web3Forms access key')||'').trim();try{if(k)localStorage.setItem('w3key',k)}catch(e){}}
+  return k;
+}
 async function sendMail(auto){
-  var st=document.getElementById('st');
-  if(!blob)return;
+  var st=document.getElementById('st'),key=getKey(!auto);
+  if(!key||!blob)return;
   st.textContent='Emailing photo...';
   try{
-    var fd=new FormData();fd.append('access_key',W3_KEY);fd.append('subject','New photo from your Vintage Mirror');
+    var fd=new FormData();fd.append('access_key',key);fd.append('subject','New photo from your Vintage Mirror');
     fd.append('from_name','Vintage Mirror');fd.append('message','Photo taken in your vintage mirror.');
     fd.append('attachment',blob,'mirror-photo.jpg');
     var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{Accept:'application/json'},body:fd});
@@ -184,15 +204,10 @@ async function sendMail(auto){
     st.textContent=j.success?'Photo emailed to you.':('Email failed: '+(j.message||'unknown error'));
   }catch(e){st.textContent='Email failed. Check your internet and try again.'}
 }
-document.getElementById('mail').addEventListener('click',function(){sendMail(false)});
 var sh=document.getElementById('shutter');
 sh.addEventListener('click',snap);
 sh.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();snap()}});
 document.getElementById('close').addEventListener('click',function(){modal.hidden=true});
-document.getElementById('share').addEventListener('click',function(){
-  try{var f=new File([blob],'mirror-photo.jpg',{type:'image/jpeg'});
-  if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:'My mirror photo'}).catch(function(){})}}catch(e){}
-});
 document.getElementById('tilt').addEventListener('click',function(){
   var on=document.getElementById('wrap').classList.toggle('tilt');
   this.setAttribute('aria-pressed',on);

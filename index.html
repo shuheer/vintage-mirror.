@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,17 +25,19 @@
     user-select: none;
   }
 
-  /* 1. Rich Antique Velvet Draped Curtains */
+  /* =========================================================================
+     1. LUXURY VANITY BACKGROUND: DRAPED ANTIQUE VELVET CURTAINS
+     ========================================================================= */
   .curtain {
     position: absolute;
     inset: 0;
-    background-color: #1c100c;
+    background-color: #1b0f0b;
     background-image:
-      /* Warm ambient candlelight radiance from lower right */
-      radial-gradient(ellipse 68% 58% at 86% 74%, rgba(255, 178, 72, 0.34) 0%, rgba(210, 118, 36, 0.14) 38%, rgba(0, 0, 0, 0) 72%),
+      /* Warm ambient candlelight glow from lower right */
+      radial-gradient(ellipse 68% 58% at 86% 74%, rgba(255, 182, 76, 0.34) 0%, rgba(210, 118, 36, 0.14) 38%, rgba(0, 0, 0, 0) 72%),
       /* Soft top-center gallery spotlight */
-      radial-gradient(ellipse 52% 45% at 50% 34%, rgba(215, 165, 95, 0.22) 0%, rgba(0, 0, 0, 0) 68%),
-      /* Primary deep velvet folds */
+      radial-gradient(ellipse 54% 46% at 50% 34%, rgba(220, 170, 98, 0.22) 0%, rgba(0, 0, 0, 0) 68%),
+      /* Deep vertical velvet curtain folds */
       repeating-linear-gradient(
         90deg,
         #120907 0px,
@@ -47,13 +50,13 @@
         #28140f 134px,
         #120907 156px
       ),
-      /* Secondary fine velvet sheen folds */
+      /* Subtle secondary velvet sheen */
       repeating-linear-gradient(
         89.2deg,
         rgba(255, 220, 170, 0.04) 0px,
-        rgba(0, 0, 0, 0.26) 24px,
+        rgba(0, 0, 0, 0.25) 24px,
         rgba(255, 200, 140, 0.05) 48px,
-        rgba(0, 0, 0, 0.32) 78px
+        rgba(0, 0, 0, 0.3) 78px
       );
     background-blend-mode: screen, screen, normal, multiply;
   }
@@ -62,12 +65,14 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 75% 65% at 50% 42%, rgba(0, 0, 0, 0) 35%, rgba(6, 3, 2, 0.82) 100%),
-      linear-gradient(180deg, rgba(8, 4, 2, 0.65) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.35) 85%, rgba(0, 0, 0, 0.85) 100%);
+      radial-gradient(ellipse 76% 66% at 50% 42%, rgba(0, 0, 0, 0) 35%, rgba(6, 3, 2, 0.84) 100%),
+      linear-gradient(180deg, rgba(8, 4, 2, 0.65) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.35) 85%, rgba(0, 0, 0, 0.86) 100%);
     pointer-events: none;
   }
 
-  /* 2. Polished Dark Mahogany / Walnut Vanity Table */
+  /* =========================================================================
+     2. POLISHED DARK MAHOGANY VANITY TABLE & CONTACT SHADOW
+     ========================================================================= */
   .table {
     position: absolute;
     left: 0;
@@ -77,11 +82,8 @@
     z-index: 1;
     background-color: #2c1509;
     background-image:
-      /* Warm candlelight specular sheen on polished wood */
       radial-gradient(ellipse 42% 85% at 88% 22%, rgba(255, 195, 105, 0.28) 0%, rgba(190, 110, 42, 0.1) 45%, rgba(0, 0, 0, 0) 75%),
-      /* Subtle mirror reflection sheen on center tabletop */
-      radial-gradient(ellipse 35% 60% at 50% 18%, rgba(240, 198, 128, 0.14) 0%, rgba(0, 0, 0, 0) 70%),
-      /* Fine walnut wood grain streaks */
+      radial-gradient(ellipse 36% 60% at 50% 18%, rgba(240, 198, 128, 0.14) 0%, rgba(0, 0, 0, 0) 70%),
       repeating-linear-gradient(
         180deg,
         rgba(0, 0, 0, 0) 0px,
@@ -96,7 +98,6 @@
         rgba(255, 190, 120, 0.04) 26px,
         rgba(0, 0, 0, 0) 44px
       ),
-      /* Mahogany depth gradient */
       linear-gradient(180deg, #6b391b 0%, #4e2610 18%, #341709 56%, #1b0b04 100%);
     box-shadow:
       inset 0 2px 0 rgba(255, 212, 148, 0.34),
@@ -104,21 +105,22 @@
       0 -6px 24px rgba(0, 0, 0, 0.72);
   }
 
-  /* Soft contact shadow on table under the mirror pedestal */
   .table-mirror-shadow {
     position: absolute;
     left: 50%;
-    bottom: 8.2%;
+    bottom: 7.4%;
     transform: translateX(-50%);
     width: min(46vh, 84vw);
-    height: 4.6%;
+    height: 4.5%;
     z-index: 1;
     border-radius: 50%;
-    background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.55) 48%, rgba(0, 0, 0, 0) 76%);
+    background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.55) 48%, rgba(0, 0, 0, 0) 76%);
     pointer-events: none;
   }
 
-  /* Subtle antique title */
+  /* =========================================================================
+     3. ANTIQUE SERIF TITLE
+     ========================================================================= */
   h1 {
     position: absolute;
     top: calc(env(safe-area-inset-top, 0px) + 10px);
@@ -132,66 +134,157 @@
     letter-spacing: 0.05em;
     color: #f4d482;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.92), 0 0 24px rgba(244, 212, 130, 0.22);
-    z-index: 3;
+    z-index: 4;
     pointer-events: none;
   }
 
-  /* 3. Realistic Antique Brass Candle Holder & Flickering Candle */
-  .candle-wrap {
+  /* =========================================================================
+     4. PURE CSS GLOWING BEESWAX CANDLE IN TURNED-BRASS DISH (ZERO SVG)
+     ========================================================================= */
+  .candle {
     position: absolute;
-    right: clamp(10px, 4.5vw, 48px);
-    bottom: 9.2%;
-    width: clamp(58px, 14vw, 96px);
-    aspect-ratio: 120 / 220;
+    right: clamp(12px, 5vw, 48px);
+    bottom: 9.6%;
+    width: clamp(48px, 11vw, 72px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 2;
     pointer-events: none;
   }
   .candle-halo {
     position: absolute;
+    top: -42px;
     left: 50%;
-    top: 15%;
-    width: 260%;
-    height: 150%;
-    transform: translate(-50%, -42%);
+    width: 170px;
+    height: 170px;
+    transform: translateX(-50%);
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 206, 110, 0.42) 0%, rgba(255, 148, 46, 0.18) 34%, rgba(255, 110, 20, 0) 70%);
-    animation: haloPulse 1.8s infinite alternate ease-in-out;
+    background: radial-gradient(circle, rgba(255, 206, 110, 0.45) 0%, rgba(255, 148, 46, 0.18) 36%, rgba(255, 110, 20, 0) 70%);
+    animation: haloPulse 1.7s infinite alternate ease-in-out;
   }
-  .candle-wrap svg {
+  .flame {
     position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-  }
-  .flame-group {
-    transform-box: fill-box;
-    transform-origin: 50% 92%;
+    width: 15px;
+    height: 30px;
+    margin-bottom: -3px;
+    border-radius: 50% 50% 50% 50% / 68% 68% 32% 32%;
+    background: radial-gradient(ellipse at 50% 68%, #fffef2 0%, #ffe073 36%, #ff8e1c 74%, rgba(255, 95, 0, 0) 100%);
+    box-shadow: 0 0 26px 8px rgba(255, 178, 66, 0.55);
+    transform-origin: 50% 90%;
     animation: flicker 1.35s infinite alternate ease-in-out;
+    z-index: 3;
   }
-  @keyframes flicker {
-    0%   { transform: scale(0.97, 1.02) rotate(-1.5deg); opacity: 0.96; }
-    35%  { transform: scale(1.04, 0.96) rotate(1.4deg); opacity: 1; }
-    70%  { transform: scale(0.98, 1.05) rotate(-0.8deg); opacity: 0.94; }
-    100% { transform: scale(1.05, 0.95) rotate(1.8deg); opacity: 0.99; }
+  .flame::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+    width: 7px;
+    height: 13px;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+    background: radial-gradient(ellipse at 50% 78%, rgba(92, 200, 255, 0.85) 0%, #ffffff 55%, rgba(255, 255, 230, 0) 100%);
   }
-  @keyframes haloPulse {
-    from { opacity: 0.85; transform: translate(-50%, -42%) scale(0.96); }
-    to   { opacity: 1; transform: translate(-50%, -42%) scale(1.06); }
+  .wick {
+    width: 2px;
+    height: 7px;
+    background: #23160b;
+    border-radius: 2px;
+    margin-bottom: -2px;
+    z-index: 2;
+  }
+  .wax {
+    position: relative;
+    width: 24px;
+    height: 68px;
+    border-radius: 4px 4px 3px 3px;
+    background:
+      linear-gradient(180deg, rgba(255, 185, 76, 0.34) 0%, rgba(255, 185, 76, 0) 38%),
+      linear-gradient(90deg, #b8a787 0%, #fff8e6 32%, #ece0c2 68%, #8f7e60 100%);
+    box-shadow: inset 0 3px 4px rgba(255, 245, 212, 0.9), 0 2px 6px rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+  .wax::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 4px;
+    height: 22px;
+    border-radius: 0 0 4px 4px;
+    background: linear-gradient(180deg, #fff5d8, #e6d5b2);
+    opacity: 0.9;
+  }
+  .wax::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    width: 4px;
+    height: 30px;
+    border-radius: 0 0 4px 4px;
+    background: linear-gradient(180deg, #f7ebd0, #d8c6a1);
+    opacity: 0.85;
+  }
+  .brass-cup {
+    width: 30px;
+    height: 11px;
+    margin-top: -2px;
+    border-radius: 3px 3px 6px 6px;
+    background: linear-gradient(90deg, #4b2f08 0%, #d8a540 26%, #fff1b0 48%, #a6721e 74%, #3c2205 100%);
+    border: 1px solid #2b1803;
+    z-index: 2;
+  }
+  .brass-dish {
+    position: relative;
+    width: 58px;
+    height: 13px;
+    margin-top: -4px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #472c07 0%, #d5a23e 24%, #ffefb0 48%, #a3701d 76%, #392104 100%);
+    border: 1px solid #2a1703;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.88), inset 0 2px 3px rgba(255, 244, 198, 0.5);
+    z-index: 1;
+  }
+  .brass-dish::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 1px;
+    width: 12px;
+    height: 9px;
+    border: 3px solid #c99634;
+    border-left: none;
+    border-radius: 0 9px 9px 0;
   }
 
-  /* 4. Centered Ornate Mirror Assembly */
+  @keyframes flicker {
+    0%   { transform: scale(0.96, 1.03) rotate(-1.6deg); opacity: 0.95; }
+    40%  { transform: scale(1.05, 0.95) rotate(1.5deg); opacity: 1; }
+    75%  { transform: scale(0.98, 1.04) rotate(-0.9deg); opacity: 0.94; }
+    100% { transform: scale(1.04, 0.96) rotate(1.8deg); opacity: 0.99; }
+  }
+  @keyframes haloPulse {
+    from { opacity: 0.82; transform: translateX(-50%) scale(0.95); }
+    to   { opacity: 1; transform: translateX(-50%) scale(1.07); }
+  }
+
+  /* =========================================================================
+     5. CENTERED ORNATE MIRROR ASSEMBLY (900x1440 ASPECT RATIO)
+     ========================================================================= */
   .wrap {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 7.4%;
+    bottom: 7%;
     height: min(84vh, 152vw);
-    aspect-ratio: 400 / 640;
-    z-index: 2;
+    aspect-ratio: 900 / 1440;
+    z-index: 3;
   }
   .wrap > * { position: absolute; }
 
-  /* Exact inner oval viewport matching SVG inner bevel (cx=200, cy=290, rx=121, ry=189) */
+  /* Exact inner oval matching #frameCanvas transparent cutout (cx=450, cy=652.5, rx=272.25, ry=425.25) */
   .cam {
     left: 19.75%;
     top: 15.78%;
@@ -204,7 +297,7 @@
       linear-gradient(120deg, #17110b 0%, #2e2318 45%, #1c150e 72%, #0e0a07 100%);
   }
 
-  /* RAW mirrored camera video: zero CSS filters, zero color/contrast distortion */
+  /* RAW horizontally mirrored camera video — zero filters, zero distortion */
   video {
     width: 100%;
     height: 100%;
@@ -213,14 +306,14 @@
     display: none;
   }
 
-  /* Subtle perimeter-only recessed glass edge shadow (never obscures the face) */
+  /* Edge-only recessed rim shadow so glass feels seated inside the frame without touching the face */
   .bevel-shadow {
     position: absolute;
     inset: 0;
     border-radius: 50%;
     box-shadow:
-      inset 0 0 14px 4px rgba(14, 8, 3, 0.72),
-      inset 0 2px 6px 1px rgba(0, 0, 0, 0.65);
+      inset 0 0 14px 3px rgba(14, 8, 3, 0.72),
+      inset 0 2px 6px 1px rgba(0, 0, 0, 0.6);
     pointer-events: none;
     z-index: 2;
   }
@@ -228,9 +321,9 @@
   #flash {
     position: absolute;
     inset: 0;
-    background: #fff;
+    background: #ffffff;
     opacity: 0;
-    transition: opacity 0.32s ease-out;
+    transition: opacity 0.3s ease-out;
     z-index: 3;
     pointer-events: none;
   }
@@ -239,7 +332,7 @@
     transition: none;
   }
 
-  /* Camera prompt inside mirror */
+  /* Initial camera prompt inside mirror */
   .msg {
     position: absolute;
     inset: 0;
@@ -276,398 +369,1093 @@
   button#go:active { transform: scale(0.96); }
   button#go:focus-visible { outline: 3px solid #fff3c4; outline-offset: 3px; }
 
-  /* Ornate SVG Mirror Frame Overlay */
-  svg.fr {
+  /* Pure HTML5 2D Canvas Baroque Mirror Frame Overlay */
+  #frameCanvas {
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: visible;
     pointer-events: none;
     z-index: 5;
-    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.62));
   }
 
-  /* Interactive Bottom Sapphire Shutter Gem */
+  /* Accessible Transparent Shutter Button positioned over the bottom sapphire gem (450, 1120.5) */
   #shutter {
-    pointer-events: auto;
+    left: 50%;
+    top: 77.8125%;
+    width: 17%;
+    height: 11.5%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
     cursor: pointer;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     outline: none;
   }
-  #shutter:hover .bezel-ring { filter: brightness(1.18); }
-  #shutter:active { filter: brightness(1.3); }
-  #shutter:focus-visible .bezel-ring { stroke: #ffffff; stroke-width: 2.5; }
-
-  .pulse {
-    fill: none;
-    stroke: #7ad8ff;
-    stroke-width: 2;
-    transform-box: fill-box;
-    transform-origin: center;
+  #shutter::before {
+    content: "";
+    width: 56%;
+    height: 68%;
+    border-radius: 50%;
+    border: 2px solid rgba(122, 216, 255, 0.9);
+    box-shadow: 0 0 10px rgba(80, 195, 255, 0.55);
     animation: gemPulse 2.2s ease-out infinite;
+    pointer-events: none;
   }
-  @keyframes gemPulse {
-    from { transform: scale(0.86); opacity: 0.9; }
-    to   { transform: scale(1.95); opacity: 0; }
+  #shutter:active::before {
+    border-color: #ffffff;
+    box-shadow: 0 0 16px #ffffff;
+  }
+  #shutter:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
   }
 
-  /* Gently swaying gold chains & brass bells */
-  .chain {
-    transform-box: fill-box;
-    transform-origin: 50% 0%;
-    animation: chainSway 3.8s ease-in-out infinite alternate;
-  }
-  @keyframes chainSway {
-    from { transform: rotate(-2.1deg); }
-    to   { transform: rotate(2.1deg); }
+  @keyframes gemPulse {
+    from { transform: scale(0.82); opacity: 0.92; }
+    to   { transform: scale(1.85); opacity: 0; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .chain, .flame-group, .candle-halo, .pulse { animation: none; }
+    .flame, .candle-halo, #shutter::before { animation: none; }
   }
 </style>
 </head>
 <body>
 
-  <!-- Draped Antique Velvet Curtains -->
+  <!-- Luxury Vanity Scene -->
   <div class="curtain" aria-hidden="true"></div>
-
-  <!-- Polished Dark Mahogany Vanity Table -->
   <div class="table" aria-hidden="true"></div>
   <div class="table-mirror-shadow" aria-hidden="true"></div>
 
-  <!-- Realistic Antique Brass Candle & Flickering Flame -->
-  <div class="candle-wrap" aria-hidden="true">
+  <!-- Glowing Beeswax Candle in Turned-Brass Dish -->
+  <div class="candle" aria-hidden="true">
     <div class="candle-halo"></div>
-    <svg id="candleSvg" viewBox="0 0 120 220" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="cWax" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#c9ba9a"/>
-          <stop offset="28%" stop-color="#fff8e7"/>
-          <stop offset="68%" stop-color="#efe2c4"/>
-          <stop offset="100%" stop-color="#9e8c6c"/>
-        </linearGradient>
-        <linearGradient id="cWaxTop" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#fff5d6"/>
-          <stop offset="100%" stop-color="#d8c39b"/>
-        </linearGradient>
-        <linearGradient id="cBrass" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#4d310a"/>
-          <stop offset="22%" stop-color="#d9a643"/>
-          <stop offset="46%" stop-color="#fff0ae"/>
-          <stop offset="72%" stop-color="#a87420"/>
-          <stop offset="100%" stop-color="#3d2406"/>
-        </linearGradient>
-        <radialGradient id="cFlameOuter" cx="50%" cy="66%" r="54%">
-          <stop offset="0%" stop-color="#fffef0"/>
-          <stop offset="35%" stop-color="#ffd966"/>
-          <stop offset="72%" stop-color="#ff8c1a"/>
-          <stop offset="100%" stop-color="rgba(255,90,0,0)"/>
-        </radialGradient>
-        <radialGradient id="cFlameCore" cx="50%" cy="76%" r="48%">
-          <stop offset="0%" stop-color="#5cc8ff" stop-opacity="0.85"/>
-          <stop offset="45%" stop-color="#ffffff"/>
-          <stop offset="100%" stop-color="rgba(255,255,230,0)"/>
-        </radialGradient>
-        <radialGradient id="cDishShadow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="rgba(0,0,0,0.85)"/>
-          <stop offset="65%" stop-color="rgba(0,0,0,0.4)"/>
-          <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
-        </radialGradient>
-      </defs>
-
-      <!-- Soft contact shadow under brass dish -->
-      <ellipse cx="60" cy="204" rx="48" ry="12" fill="url(#cDishShadow)"/>
-
-      <!-- Antique Brass Saucer Dish & Handle -->
-      <path d="M98 188 C113 184 116 196 104 201 C98 203 94 200 94 196" fill="none" stroke="url(#cBrass)" stroke-width="4.5" stroke-linecap="round"/>
-      <ellipse cx="60" cy="196" rx="42" ry="11" fill="url(#cBrass)" stroke="#2e1b04" stroke-width="1.2"/>
-      <ellipse cx="60" cy="193" rx="37" ry="8.5" fill="#5e3c0e" stroke="#f5d57a" stroke-width="0.9" opacity="0.85"/>
-      <!-- Turned brass candle cup -->
-      <path d="M40 176 L80 176 L75 193 C68 196 52 196 45 193 Z" fill="url(#cBrass)" stroke="#2e1b04" stroke-width="1"/>
-      <ellipse cx="60" cy="176" rx="20" ry="4.5" fill="url(#cBrass)" stroke="#2e1b04" stroke-width="0.8"/>
-
-      <!-- Cream Beeswax Pillar -->
-      <path d="M43 82 L77 82 L77 176 C68 179 52 179 43 176 Z" fill="url(#cWax)" stroke="#7c6b4e" stroke-width="0.6"/>
-      <!-- Warm translucent glow near top of wax -->
-      <rect x="43" y="82" width="34" height="30" rx="4" fill="#ffb84d" opacity="0.22"/>
-      <!-- Melted wax top cup -->
-      <ellipse cx="60" cy="82" rx="17" ry="4.2" fill="url(#cWaxTop)" stroke="#b8a581" stroke-width="0.7"/>
-      <!-- Organic melted wax drips -->
-      <path d="M46 84 C45 98 44 112 46.5 116 C49 119 50.5 113 50 100 C50 93 52 98 54 103 C56 106 58 102 57.5 86 Z" fill="#fff4d8" opacity="0.92"/>
-      <path d="M68 85 C67.5 102 69 124 72 128 C74.5 130 75.5 123 74.8 104 C74.5 94 76 90 76.5 84 Z" fill="#f3e5c5" opacity="0.88"/>
-
-      <!-- Charred wick -->
-      <path d="M60 82 Q61 75 59.5 70" fill="none" stroke="#24170c" stroke-width="1.8" stroke-linecap="round"/>
-
-      <!-- Layered Flickering Flame -->
-      <g class="flame-group">
-        <path d="M60 22 C72 42 74 62 60 72 C46 62 48 42 60 22 Z" fill="url(#cFlameOuter)"/>
-        <path d="M60 36 C67 50 67 63 60 71 C53 63 53 50 60 36 Z" fill="url(#cFlameCore)"/>
-      </g>
-    </svg>
+    <div class="flame"></div>
+    <div class="wick"></div>
+    <div class="wax"></div>
+    <div class="brass-cup"></div>
+    <div class="brass-dish"></div>
   </div>
 
   <!-- Title -->
   <h1>Vintage Mirror</h1>
 
-  <!-- Ornate Vintage Mirror -->
+  <!-- Ornate Baroque Mirror Assembly -->
   <div class="wrap" id="wrap">
-    <!-- Raw Mirrored Camera Viewport -->
+    <!-- Live Raw Mirrored Camera Viewport -->
     <div class="cam">
       <video id="v" autoplay playsinline muted></video>
       <div class="bevel-shadow" aria-hidden="true"></div>
       <div class="msg" id="msg">
-        <span>Step up and behold your reflection.</span>
+        <span>Step up and take a look.</span>
         <button id="go" type="button">Open mirror</button>
       </div>
       <div id="flash" aria-hidden="true"></div>
     </div>
 
-    <!-- Ultra-Detailed Baroque Antique Gold Mirror Frame (SVG) -->
-    <svg class="fr" id="frameSvg" viewBox="0 0 400 640" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <!-- Multi-stop antique gold & burnished brass gradients -->
-        <linearGradient id="goldMain" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#fff4bf"/>
-          <stop offset="18%" stop-color="#e8bd55"/>
-          <stop offset="38%" stop-color="#9e6b1b"/>
-          <stop offset="56%" stop-color="#f7d97e"/>
-          <stop offset="76%" stop-color="#7c4e10"/>
-          <stop offset="90%" stop-color="#cfa03c"/>
-          <stop offset="100%" stop-color="#472a06"/>
-        </linearGradient>
+    <!-- Single Pre-Rendered Pure 2D Canvas Baroque Gold Mirror Frame (900x1440) -->
+    <canvas id="frameCanvas" width="900" height="1440" aria-hidden="true"></canvas>
 
-        <linearGradient id="goldVert" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#4e2e07"/>
-          <stop offset="22%" stop-color="#c99634"/>
-          <stop offset="44%" stop-color="#fff0ab"/>
-          <stop offset="68%" stop-color="#9a6818"/>
-          <stop offset="88%" stop-color="#d8a844"/>
-          <stop offset="100%" stop-color="#3e2305"/>
-        </linearGradient>
-
-        <linearGradient id="goldLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#fff5c4"/>
-          <stop offset="35%" stop-color="#e0ae40"/>
-          <stop offset="75%" stop-color="#875512"/>
-          <stop offset="100%" stop-color="#4a2c07"/>
-        </linearGradient>
-
-        <radialGradient id="goldRose" cx="35%" cy="30%" r="72%">
-          <stop offset="0%" stop-color="#fff5c2"/>
-          <stop offset="38%" stop-color="#e3b142"/>
-          <stop offset="75%" stop-color="#8b5914"/>
-          <stop offset="100%" stop-color="#3e2305"/>
-        </radialGradient>
-
-        <linearGradient id="innerChannel" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#5c390b"/>
-          <stop offset="30%" stop-color="#c99736"/>
-          <stop offset="55%" stop-color="#402505"/>
-          <stop offset="80%" stop-color="#e3b652"/>
-          <stop offset="100%" stop-color="#2b1703"/>
-        </linearGradient>
-
-        <!-- Deep Faceted Royal Sapphire Gradient -->
-        <radialGradient id="sapphireBase" cx="38%" cy="32%" r="75%">
-          <stop offset="0%" stop-color="#9ee8ff"/>
-          <stop offset="22%" stop-color="#289be6"/>
-          <stop offset="58%" stop-color="#0b4b9c"/>
-          <stop offset="88%" stop-color="#051f52"/>
-          <stop offset="100%" stop-color="#020c26"/>
-        </radialGradient>
-
-        <linearGradient id="sapphireFacet" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.72"/>
-          <stop offset="40%" stop-color="#69d2ff" stop-opacity="0.25"/>
-          <stop offset="100%" stop-color="#041942" stop-opacity="0.45"/>
-        </linearGradient>
-
-        <!-- Sculpted Acanthus Leaf Symbol -->
-        <symbol id="acanthus" overflow="visible">
-          <path d="M0 0 C7 -9 16 -12 25 -8 C29 -6 34 -2 40 0 C34 2 29 6 25 8 C16 12 7 9 0 0 Z" fill="url(#goldLeaf)" stroke="#382205" stroke-width="0.95"/>
-          <path d="M6 -5 C13 -7 20 -6 27 -3 M6 5 C13 7 20 6 27 3" fill="none" stroke="#fff3be" stroke-width="0.6" opacity="0.65"/>
-          <path d="M2 0 L35 0" stroke="#3b2305" stroke-width="0.95" opacity="0.78"/>
-        </symbol>
-
-        <!-- Detailed Multi-Layered Vintage Rose Symbol -->
-        <symbol id="rose" overflow="visible">
-          <circle r="11.5" fill="url(#goldRose)" stroke="#362005" stroke-width="1"/>
-          <path d="M-8 -3 C-10 -9 -2 -12 4 -8 C10 -5 11 4 6 8 C1 12 -8 9 -9 2" fill="none" stroke="#362005" stroke-width="1.15"/>
-          <path d="M-5 -2 C-6 -6 0 -8 4 -5 C7 -2 6 4 2 6 C-2 7 -6 4 -5 -1" fill="none" stroke="#fff0ad" stroke-width="0.7" opacity="0.7"/>
-          <path d="M-2 0 C-2 -3 2 -3 3 0 C4 3 -1 5 -4 2 C-6 -1 -2 -6 3 -4" fill="none" stroke="#362005" stroke-width="1.1"/>
-          <circle cx="-1.5" cy="-1.5" r="2.2" fill="#fff4c4" opacity="0.55"/>
-        </symbol>
-
-        <!-- Delicate Baroque Scroll / Filigree Curl -->
-        <symbol id="scroll" overflow="visible">
-          <path d="M0 0 C12 -14 32 -14 38 -2 C42 6 34 14 26 11 C20 9 20 2 25 1" fill="none" stroke="url(#goldMain)" stroke-width="4.2" stroke-linecap="round"/>
-          <path d="M0 0 C12 -14 32 -14 38 -2 C42 6 34 14 26 11 C20 9 20 2 25 1" fill="none" stroke="#3a2205" stroke-width="0.9" stroke-linecap="round"/>
-        </symbol>
-      </defs>
-
-      <!-- MAIN GILDED BAROQUE STRUCTURE (Pure Gradients & Highlight Paths — No Heavy SVG Filters) -->
-      <g>
-        <!-- Sculpted Yoke Arms supporting the mirror -->
-        <path d="M54 294 C34 426 92 522 200 550 C308 522 366 426 346 294" fill="none" stroke="url(#goldVert)" stroke-width="12.5" stroke-linecap="round"/>
-        <path d="M54 294 C34 426 92 522 200 550 C308 522 366 426 346 294" fill="none" stroke="#3a2205" stroke-width="1.2" stroke-dasharray="2.5 5" opacity="0.65"/>
-        <!-- Yoke inner scroll brackets -->
-        <path d="M60 356 C76 378 88 410 82 436 M340 356 C324 378 312 410 318 436" fill="none" stroke="url(#goldMain)" stroke-width="3.5" stroke-linecap="round"/>
-        <!-- Ornate Pivot Finials at sides -->
-        <g>
-          <path d="M54 296 L36 250 L58 270 L66 294 Z" fill="url(#goldMain)" stroke="#382205" stroke-width="1"/>
-          <circle cx="49" cy="296" r="8" fill="url(#goldRose)" stroke="#382205" stroke-width="1"/>
-          <circle cx="49" cy="296" r="3" fill="#fff4c4" opacity="0.7"/>
-          <path d="M346 296 L364 250 L342 270 L334 294 Z" fill="url(#goldMain)" stroke="#382205" stroke-width="1"/>
-          <circle cx="351" cy="296" r="8" fill="url(#goldRose)" stroke="#382205" stroke-width="1"/>
-          <circle cx="351" cy="296" r="3" fill="#fff4c4" opacity="0.7"/>
-        </g>
-
-        <!-- Fluted Brass Stem & Classical Collars -->
-        <path d="M185 504 L215 504 L209 566 L191 566 Z" fill="url(#goldVert)" stroke="#382205" stroke-width="1.1"/>
-        <line x1="194" y1="510" x2="196" y2="562" stroke="#3a2205" stroke-width="1" opacity="0.55"/>
-        <line x1="200" y1="510" x2="200" y2="562" stroke="#fff3be" stroke-width="1" opacity="0.6"/>
-        <line x1="206" y1="510" x2="204" y2="562" stroke="#3a2205" stroke-width="1" opacity="0.55"/>
-        <ellipse cx="200" cy="542" rx="19" ry="6.5" fill="url(#goldMain)" stroke="#382205" stroke-width="1"/>
-        <ellipse cx="200" cy="562" rx="24" ry="7" fill="url(#goldMain)" stroke="#382205" stroke-width="1"/>
-
-        <!-- Ornate Footed Baroque Pedestal Base -->
-        <path d="M148 594 C150 572 174 562 200 562 C226 562 250 572 252 594 C266 599 294 602 302 620 C298 627 284 630 272 628 C252 634 148 634 128 628 C116 630 102 627 98 620 C106 602 134 599 148 594 Z" fill="url(#goldMain)" stroke="#382205" stroke-width="1.5"/>
-        <!-- Scrolled cabriole pedestal feet -->
-        <path d="M104 619 C96 625 98 633 110 633 C118 633 124 628 126 624" fill="url(#goldVert)" stroke="#382205" stroke-width="1.1"/>
-        <path d="M296 619 C304 625 302 633 290 633 C282 633 276 628 274 624" fill="url(#goldVert)" stroke="#382205" stroke-width="1.1"/>
-        <path d="M186 628 C192 635 208 635 214 628" fill="url(#goldVert)" stroke="#382205" stroke-width="1.1"/>
-        <!-- Pedestal relief molding line -->
-        <path d="M118 614 C154 623 246 623 282 614" fill="none" stroke="#fff3be" stroke-width="1.2" opacity="0.65"/>
-        <g id="baseDeco"></g>
-
-        <!-- Main Baroque Oval Frame Body -->
-        <path fill-rule="evenodd" d="M200 72 a154 218 0 1 0 0.01 0 Z M200 101 a121 189 0 1 1 -0.01 0 Z" fill="url(#goldMain)" stroke="#382205" stroke-width="1.6"/>
-        <!-- Recessed antique channel -->
-        <ellipse cx="200" cy="290" rx="137" ry="203" fill="none" stroke="url(#innerChannel)" stroke-width="12" opacity="0.82"/>
-        <!-- Outer carved pearl/bead trim -->
-        <ellipse cx="200" cy="290" rx="149" ry="214" fill="none" stroke="url(#goldMain)" stroke-width="4.5" stroke-dasharray="0.1 5.4" stroke-linecap="round"/>
-        <!-- Inner pearl/bead trim -->
-        <ellipse cx="200" cy="290" rx="127" ry="195" fill="none" stroke="url(#goldMain)" stroke-width="6.5" stroke-dasharray="0.1 6.2" stroke-linecap="round"/>
-        <!-- Crisp beveled inner mirror glass rim -->
-        <ellipse cx="200" cy="290" rx="122.5" ry="190.5" fill="none" stroke="#241403" stroke-width="3.2"/>
-        <ellipse cx="200" cy="290" rx="120.5" ry="188.5" fill="none" stroke="#fff0b3" stroke-width="1.4" opacity="0.88"/>
-
-        <!-- Top Baroque Filigree Crest -->
-        <path d="M200 44 C182 58 164 66 144 74 C166 78 182 88 200 94 C218 88 234 78 256 74 C236 66 218 58 200 44 Z" fill="url(#goldMain)" stroke="#382205" stroke-width="1.2"/>
-
-        <!-- Procedurally Generated Acanthus Leaves, Roses & Scrolls -->
-        <g id="deco"></g>
-      </g>
-
-      <!-- FACETED ROYAL SAPPHIRE GEMSTONES -->
-      <g id="gems">
-        <!-- Top Crown Sapphire -->
-        <g>
-          <ellipse cx="200" cy="82" rx="15" ry="20" fill="url(#goldMain)" stroke="#362005" stroke-width="1.5"/>
-          <ellipse cx="200" cy="82" rx="10" ry="14.5" fill="url(#sapphireBase)" stroke="#c7f2ff" stroke-width="0.7"/>
-          <!-- Faceted table planes -->
-          <polygon points="200,70 206,77 205,88 200,93 195,88 194,77" fill="url(#sapphireFacet)"/>
-          <ellipse cx="196.5" cy="76" rx="2.8" ry="4.8" fill="#ffffff" opacity="0.78" transform="rotate(-14 196.5 76)"/>
-          <!-- Gold bezel prongs -->
-          <circle cx="191" cy="72" r="1.8" fill="#fff2b5" stroke="#362005" stroke-width="0.6"/>
-          <circle cx="209" cy="72" r="1.8" fill="#fff2b5" stroke="#362005" stroke-width="0.6"/>
-          <circle cx="191" cy="92" r="1.8" fill="#fff2b5" stroke="#362005" stroke-width="0.6"/>
-          <circle cx="209" cy="92" r="1.8" fill="#fff2b5" stroke="#362005" stroke-width="0.6"/>
-        </g>
-
-        <!-- Bottom Interactive Sapphire Shutter Gem -->
-        <g id="shutter" role="button" tabindex="0" aria-label="Capture and save mirror photo">
-          <!-- Generous touch target -->
-          <circle cx="200" cy="498" r="34" fill="rgba(0,0,0,0)"/>
-          <!-- Subtle on-screen pulse ring (stripped during export) -->
-          <ellipse class="pulse" cx="200" cy="498" rx="17" ry="22"/>
-          <!-- Ornate gold bezel -->
-          <ellipse class="bezel-ring" cx="200" cy="498" rx="17" ry="22" fill="url(#goldMain)" stroke="#362005" stroke-width="1.6"/>
-          <!-- Deep faceted sapphire -->
-          <ellipse cx="200" cy="498" rx="11.5" ry="16.5" fill="url(#sapphireBase)" stroke="#c7f2ff" stroke-width="0.8"/>
-          <polygon points="200,484 207,492 206,505 200,511 194,505 193,492" fill="url(#sapphireFacet)"/>
-          <ellipse cx="195.5" cy="491" rx="3.2" ry="5.2" fill="#ffffff" opacity="0.82" transform="rotate(-14 195.5 491)"/>
-          <!-- Gold bezel prongs -->
-          <circle cx="190" cy="486" r="2" fill="#fff2b5" stroke="#362005" stroke-width="0.6"/>
-          <circle cx="210" cy="486" r="2" fill="#fff2b5" stroke="#362005" stroke-width="0.6"/>
-          <circle cx="190" cy="510" r="2" fill="#fff2b5" stroke="#362005" stroke-width="0.6"/>
-          <circle cx="210" cy="510" r="2" fill="#fff2b5" stroke="#362005" stroke-width="0.6"/>
-        </g>
-      </g>
-
-      <!-- Delicate Hanging Gold Chains & Sculpted Brass Bells -->
-      <g id="chains"></g>
-    </svg>
+    <!-- Transparent Accessible Shutter Button over Bottom Sapphire Gem -->
+    <button id="shutter" type="button" aria-label="Save photo"></button>
   </div>
 
 <script>
 (function () {
   'use strict';
 
-  var NS = 'http://www.w3.org/2000/svg';
-  var CX = 200, CY = 290;
-
-  function el(parent, tag, attrs) {
-    var node = document.createElementNS(NS, tag);
-    for (var k in attrs) node.setAttribute(k, attrs[k]);
-    parent.appendChild(node);
-    return node;
-  }
-
-  function use(parent, id, x, y, rot, sx, sy) {
-    var u = el(parent, 'use', { href: '#' + id });
-    var scaleStr = sy !== undefined ? ('scale(' + sx + ' ' + sy + ')') : ('scale(' + sx + ')');
-    u.setAttribute('transform', 'translate(' + x + ' ' + y + ') rotate(' + rot + ') ' + scaleStr);
-    return u;
-  }
-
   /* =========================================================================
-     2. PRE-RENDER HIGH-RESOLUTION SVG ASSETS (1200x1920 FRAME + CANDLE)
+     CONSTANTS & SHARED CANVASES (FIXED 900x1440 FOR ZERO-CRASH PERFORMANCE)
      ========================================================================= */
-  var EXPORT_W = 1200;
-  var EXPORT_H = 1920;
+  var W = 900;
+  var H = 1440;
+  var S = 2.25; // Scale from 400x640 design grid to 900x1440
+  var CX = 200 * S; // 450
+  var CY = 290 * S; // 652.5
+  var INNER_RX = 121 * S; // 272.25
+  var INNER_RY = 189 * S; // 425.25
 
-  var frameImg = new Image();
-  var frameReady = new Promise(function (resolve) {
-    try {
-      var clone = document.getElementById('frameSvg').cloneNode(true);
-      clone.setAttribute('width', String(EXPORT_W));
-      clone.setAttribute('height', String(EXPORT_H));
-      // Strip the animated pulse ring so exported photo looks pure & authentic
-      var pulse = clone.querySelector('.pulse');
-      if (pulse) pulse.remove();
-      var svgStr = new XMLSerializer().serializeToString(clone);
-      var blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
-      var url = URL.createObjectURL(blob);
-      frameImg.onload = function () { URL.revokeObjectURL(url); resolve(true); };
-      frameImg.onerror = function () { URL.revokeObjectURL(url); resolve(false); };
-      frameImg.src = url;
-    } catch (e) {
-      resolve(false);
-    }
-  });
+  var frameCanvas = document.getElementById('frameCanvas');
+  var fCtx = frameCanvas.getContext('2d');
 
-  var candleImg = new Image();
-  var candleReady = new Promise(function (resolve) {
-    try {
-      var cClone = document.getElementById('candleSvg').cloneNode(true);
-      cClone.setAttribute('width', '288');
-      cClone.setAttribute('height', '528');
-      var cStr = new XMLSerializer().serializeToString(cClone);
-      var cBlob = new Blob([cStr], { type: 'image/svg+xml;charset=utf-8' });
-      var cUrl = URL.createObjectURL(cBlob);
-      candleImg.onload = function () { URL.revokeObjectURL(cUrl); resolve(true); };
-      candleImg.onerror = function () { URL.revokeObjectURL(cUrl); resolve(false); };
-      candleImg.src = cUrl;
-    } catch (e) {
-      resolve(false);
-    }
-  });
+  // Single reusable offscreen canvas for all captures (never reallocated)
+  var captureCanvas = document.createElement('canvas');
+  captureCanvas.width = W;
+  captureCanvas.height = H;
+  var capCtx = captureCanvas.getContext('2d');
 
   /* =========================================================================
-     3. RAW FRONT-CAMERA STREAM (SENSIBLE HD RESOLUTION, ZERO FILTERS)
+     1. METALLIC ANTIQUE GOLD GRADIENT HELPERS
+     ========================================================================= */
+  function goldLinear(ctx, x1, y1, x2, y2) {
+    var g = ctx.createLinearGradient(x1, y1, x2, y2);
+    g.addColorStop(0.00, '#fff4be');
+    g.addColorStop(0.18, '#e8bc52');
+    g.addColorStop(0.38, '#9c6819');
+    g.addColorStop(0.56, '#f8db82');
+    g.addColorStop(0.76, '#7a4c0f');
+    g.addColorStop(0.90, '#cfa03c');
+    g.addColorStop(1.00, '#472a06');
+    return g;
+  }
+
+  function goldTube(ctx, x1, y1, x2, y2) {
+    var g = ctx.createLinearGradient(x1, y1, x2, y2);
+    g.addColorStop(0.00, '#4a2b06');
+    g.addColorStop(0.22, '#c89432');
+    g.addColorStop(0.45, '#fff1ae');
+    g.addColorStop(0.70, '#966416');
+    g.addColorStop(0.88, '#d6a642');
+    g.addColorStop(1.00, '#3b2104');
+    return g;
+  }
+
+  function goldRoseGrad(ctx, r) {
+    var g = ctx.createRadialGradient(-r * 0.3, -r * 0.3, r * 0.08, 0, 0, r * 1.15);
+    g.addColorStop(0.00, '#fff6c6');
+    g.addColorStop(0.36, '#e4b243');
+    g.addColorStop(0.74, '#8a5713');
+    g.addColorStop(1.00, '#3b2104');
+    return g;
+  }
+
+  /* =========================================================================
+     2. BOTANICAL & BAROQUE ORNAMENT DRAWING PRIMITIVES (PURE 2D CANVAS)
+     ========================================================================= */
+  function drawAcanthusLeaf(ctx, x, y, rotDeg, sx, sy) {
+    sy = (sy === undefined) ? sx : sy;
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rotDeg * Math.PI / 180);
+    ctx.scale(sx, sy);
+
+    // Subtle cast shadow onto the gold rim
+    ctx.save();
+    ctx.translate(1.5, 3.2);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(16, -20, 36, -27, 56, -18);
+    ctx.bezierCurveTo(66, -13, 77, -4, 90, 0);
+    ctx.bezierCurveTo(77, 4, 66, 13, 56, 18);
+    ctx.bezierCurveTo(36, 27, 16, 20, 0, 0);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(28, 14, 2, 0.42)';
+    ctx.fill();
+    ctx.restore();
+
+    // Sculpted leaf body
+    var lg = ctx.createLinearGradient(0, -18, 90, 18);
+    lg.addColorStop(0.0, '#fff5c4');
+    lg.addColorStop(0.35, '#e2b042');
+    lg.addColorStop(0.74, '#875512');
+    lg.addColorStop(1.0, '#462806');
+
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(16, -20, 36, -27, 56, -18);
+    ctx.bezierCurveTo(66, -13, 77, -4, 90, 0);
+    ctx.bezierCurveTo(77, 4, 66, 13, 56, 18);
+    ctx.bezierCurveTo(36, 27, 16, 20, 0, 0);
+    ctx.closePath();
+    ctx.fillStyle = lg;
+    ctx.fill();
+    ctx.lineWidth = 2.1;
+    ctx.strokeStyle = '#361f04';
+    ctx.stroke();
+
+    // Raised specular ridges
+    ctx.strokeStyle = 'rgba(255, 244, 192, 0.72)';
+    ctx.lineWidth = 1.4;
+    ctx.beginPath();
+    ctx.moveTo(14, -10);
+    ctx.quadraticCurveTo(38, -15, 62, -6);
+    ctx.moveTo(14, 10);
+    ctx.quadraticCurveTo(38, 15, 62, 6);
+    ctx.stroke();
+
+    // Central carved vein
+    ctx.strokeStyle = 'rgba(54, 31, 4, 0.8)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(4, 0);
+    ctx.lineTo(78, 0);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  function drawBaroqueRose(ctx, x, y, rotDeg, scale) {
+    var r = 25.5 * scale;
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rotDeg * Math.PI / 180);
+
+    // Cast shadow
+    ctx.beginPath();
+    ctx.arc(2, 4, r * 1.04, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(24, 12, 2, 0.48)';
+    ctx.fill();
+
+    // Outer scalloped rosette petals (5 overlapping lobes)
+    var baseGrad = goldRoseGrad(ctx, r);
+    for (var i = 0; i < 5; i++) {
+      var a = (i * 72) * Math.PI / 180;
+      ctx.beginPath();
+      ctx.arc(Math.cos(a) * r * 0.34, Math.sin(a) * r * 0.34, r * 0.68, 0, Math.PI * 2);
+      ctx.fillStyle = baseGrad;
+      ctx.fill();
+      ctx.lineWidth = 1.8 * scale;
+      ctx.strokeStyle = '#382105';
+      ctx.stroke();
+    }
+
+    // Inner core dome
+    ctx.beginPath();
+    ctx.arc(0, 0, r * 0.72, 0, Math.PI * 2);
+    ctx.fillStyle = baseGrad;
+    ctx.fill();
+    ctx.lineWidth = 1.8 * scale;
+    ctx.strokeStyle = '#382105';
+    ctx.stroke();
+
+    // Carved spiral petal folds
+    ctx.strokeStyle = '#382105';
+    ctx.lineWidth = 2.1 * scale;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.arc(0, 0, r * 0.50, 0.4, Math.PI * 1.65);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(0, 0, r * 0.27, 2.2, Math.PI * 1.85 + 1.5);
+    ctx.stroke();
+
+    // Warm specular gold highlights on raised petal edges
+    ctx.strokeStyle = 'rgba(255, 245, 198, 0.72)';
+    ctx.lineWidth = 1.4 * scale;
+    ctx.beginPath();
+    ctx.arc(-r * 0.08, -r * 0.08, r * 0.48, Math.PI * 1.05, Math.PI * 1.55);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(-r * 0.14, -r * 0.14, r * 0.16, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 248, 212, 0.65)';
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  function drawBaroqueScroll(ctx, x, y, rotDeg, sx, sy) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rotDeg * Math.PI / 180);
+    ctx.scale(sx, sy);
+
+    ctx.lineCap = 'round';
+    // Shadow
+    ctx.save();
+    ctx.translate(2, 4);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(27, -32, 72, -32, 86, -4);
+    ctx.bezierCurveTo(95, 14, 76, 32, 58, 25);
+    ctx.bezierCurveTo(45, 20, 45, 4, 56, 2);
+    ctx.strokeStyle = 'rgba(24, 12, 2, 0.45)';
+    ctx.lineWidth = 11;
+    ctx.stroke();
+    ctx.restore();
+
+    // Dark bronze outline
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(27, -32, 72, -32, 86, -4);
+    ctx.bezierCurveTo(95, 14, 76, 32, 58, 25);
+    ctx.bezierCurveTo(45, 20, 45, 4, 56, 2);
+    ctx.strokeStyle = '#382105';
+    ctx.lineWidth = 11.5;
+    ctx.stroke();
+
+    // Metallic gold body
+    ctx.strokeStyle = goldLinear(ctx, 0, -30, 90, 30);
+    ctx.lineWidth = 8.2;
+    ctx.stroke();
+
+    // Fine top specular gleam
+    ctx.strokeStyle = 'rgba(255, 246, 202, 0.72)';
+    ctx.lineWidth = 2.2;
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  function drawSapphireGem(ctx, cx, cy, rx, ry) {
+    ctx.save();
+    ctx.translate(cx, cy);
+
+    // Outer drop shadow
+    ctx.beginPath();
+    ctx.ellipse(2, 5, rx + 11, ry + 11, 0, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(18, 9, 2, 0.55)';
+    ctx.fill();
+
+    // Ornate gold bezel setting
+    ctx.beginPath();
+    ctx.ellipse(0, 0, rx + 10, ry + 10, 0, 0, Math.PI * 2);
+    ctx.fillStyle = goldLinear(ctx, -rx - 10, -ry - 10, rx + 10, ry + 10);
+    ctx.fill();
+    ctx.lineWidth = 3.2;
+    ctx.strokeStyle = '#361f04';
+    ctx.stroke();
+
+    // Recessed inner bezel rim
+    ctx.beginPath();
+    ctx.ellipse(0, 0, rx + 2.5, ry + 2.5, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = '#fff1b3';
+    ctx.lineWidth = 1.6;
+    ctx.stroke();
+
+    // Royal blue sapphire cabochon body
+    var sg = ctx.createRadialGradient(-rx * 0.28, -ry * 0.30, rx * 0.08, 0, 0, Math.max(rx, ry) * 1.12);
+    sg.addColorStop(0.00, '#a6ecff');
+    sg.addColorStop(0.22, '#2a9ee8');
+    sg.addColorStop(0.56, '#0b4a9c');
+    sg.addColorStop(0.86, '#051f54');
+    sg.addColorStop(1.00, '#020b24');
+
+    ctx.beginPath();
+    ctx.ellipse(0, 0, rx, ry, 0, 0, Math.PI * 2);
+    ctx.fillStyle = sg;
+    ctx.fill();
+    ctx.lineWidth = 1.8;
+    ctx.strokeStyle = '#bceeff';
+    ctx.stroke();
+
+    // Faceted gemstone table polygon
+    var fg = ctx.createLinearGradient(-rx * 0.6, -ry * 0.7, rx * 0.6, ry * 0.7);
+    fg.addColorStop(0.0, 'rgba(255, 255, 255, 0.68)');
+    fg.addColorStop(0.42, 'rgba(110, 214, 255, 0.22)');
+    fg.addColorStop(1.0, 'rgba(3, 22, 62, 0.45)');
+    ctx.beginPath();
+    ctx.moveTo(0, -ry * 0.78);
+    ctx.lineTo(rx * 0.58, -ry * 0.32);
+    ctx.lineTo(rx * 0.48, ry * 0.38);
+    ctx.lineTo(0, ry * 0.76);
+    ctx.lineTo(-rx * 0.48, ry * 0.38);
+    ctx.lineTo(-rx * 0.58, -ry * 0.32);
+    ctx.closePath();
+    ctx.fillStyle = fg;
+    ctx.fill();
+
+    // Crisp white specular glint
+    ctx.save();
+    ctx.translate(-rx * 0.34, -ry * 0.36);
+    ctx.rotate(-0.26);
+    ctx.beginPath();
+    ctx.ellipse(0, 0, rx * 0.26, ry * 0.28, 0, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.84)';
+    ctx.fill();
+    ctx.restore();
+
+    // Subtle lower internal blue bounce light
+    ctx.beginPath();
+    ctx.ellipse(rx * 0.16, ry * 0.46, rx * 0.32, ry * 0.15, -0.2, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(90, 212, 255, 0.42)';
+    ctx.fill();
+
+    // 4 sculpted gold bezel prongs
+    var prongOffsets = [
+      [-rx * 0.82, -ry * 0.68],
+      [ rx * 0.82, -ry * 0.68],
+      [-rx * 0.82,  ry * 0.68],
+      [ rx * 0.82,  ry * 0.68]
+    ];
+    for (var p = 0; p < prongOffsets.length; p++) {
+      ctx.beginPath();
+      ctx.arc(prongOffsets[p][0], prongOffsets[p][1], 4.2, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff2b8';
+      ctx.fill();
+      ctx.lineWidth = 1.4;
+      ctx.strokeStyle = '#361f04';
+      ctx.stroke();
+    }
+
+    ctx.restore();
+  }
+
+  function drawBeadRing(ctx, cx, cy, rx, ry, count, beadRadius) {
+    for (var i = 0; i < count; i++) {
+      var t = (i / count) * Math.PI * 2;
+      var bx = cx + rx * Math.cos(t);
+      var by = cy + ry * Math.sin(t);
+      var bg = ctx.createRadialGradient(bx - beadRadius * 0.35, by - beadRadius * 0.35, beadRadius * 0.1, bx, by, beadRadius);
+      bg.addColorStop(0.0, '#fff6c6');
+      bg.addColorStop(0.45, '#dfb042');
+      bg.addColorStop(1.0, '#4d2e07');
+      ctx.beginPath();
+      ctx.arc(bx, by, beadRadius, 0, Math.PI * 2);
+      ctx.fillStyle = bg;
+      ctx.fill();
+      ctx.lineWidth = 0.8;
+      ctx.strokeStyle = 'rgba(42, 23, 4, 0.72)';
+      ctx.stroke();
+    }
+  }
+
+  function drawHangingChainAndBell(ctx, sx, sy, len) {
+    // Beaded gold chain links
+    var step = 7.5;
+    for (var dy = 0; dy <= len; dy += step) {
+      var bx = sx;
+      var by = sy + dy;
+      ctx.beginPath();
+      ctx.arc(bx, by, 2.7, 0, Math.PI * 2);
+      ctx.fillStyle = '#e7ba50';
+      ctx.fill();
+      ctx.lineWidth = 0.9;
+      ctx.strokeStyle = '#3a2205';
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(bx - 0.8, by - 0.8, 0.9, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff7cc';
+      ctx.fill();
+    }
+
+    // Miniature turned-brass bell
+    var bellTop = sy + len;
+    ctx.save();
+    // Cast shadow
+    ctx.beginPath();
+    ctx.ellipse(sx + 2, bellTop + 29, 19, 5, 0, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(18, 9, 2, 0.42)';
+    ctx.fill();
+
+    // Flared bell body
+    ctx.beginPath();
+    ctx.moveTo(sx - 4.5, bellTop);
+    ctx.bezierCurveTo(sx - 13.5, bellTop + 4.5, sx - 17, bellTop + 20, sx - 19.5, bellTop + 26);
+    ctx.lineTo(sx + 19.5, bellTop + 26);
+    ctx.bezierCurveTo(sx + 17, bellTop + 20, sx + 13.5, bellTop + 4.5, sx + 4.5, bellTop);
+    ctx.closePath();
+    ctx.fillStyle = goldTube(ctx, sx - 19, bellTop, sx + 19, bellTop);
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#382205';
+    ctx.stroke();
+
+    // Bell rim
+    ctx.beginPath();
+    ctx.ellipse(sx, bellTop + 26, 19.5, 4.8, 0, 0, Math.PI * 2);
+    ctx.fillStyle = '#f6d87d';
+    ctx.fill();
+    ctx.lineWidth = 1.6;
+    ctx.strokeStyle = '#382205';
+    ctx.stroke();
+
+    // Brass clapper bead
+    ctx.beginPath();
+    ctx.arc(sx, bellTop + 30.5, 4.6, 0, Math.PI * 2);
+    ctx.fillStyle = goldLinear(ctx, sx - 5, bellTop + 26, sx + 5, bellTop + 35);
+    ctx.fill();
+    ctx.lineWidth = 1.4;
+    ctx.strokeStyle = '#382205';
+    ctx.stroke();
+
+    // Specular glint on bell shoulder
+    ctx.beginPath();
+    ctx.ellipse(sx - 5.5, bellTop + 12, 3.2, 5.5, 0.25, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 250, 218, 0.78)';
+    ctx.fill();
+    ctx.restore();
+  }
+
+  /* =========================================================================
+     3. RENDER COMPLETE BAROQUE GOLD MIRROR FRAME ONCE ONTO #frameCanvas
+     ========================================================================= */
+  function renderMirrorFrame() {
+    var ctx = fCtx;
+    ctx.clearRect(0, 0, W, H);
+
+    ctx.save();
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+
+    // --- A. CURVED BRASS YOKE ARMS & PIVOT FINIALS ---
+    ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.55)';
+    ctx.shadowBlur = 14;
+    ctx.shadowOffsetY = 8;
+
+    ctx.beginPath();
+    ctx.moveTo(54 * S, 294 * S);
+    ctx.bezierCurveTo(34 * S, 426 * S, 92 * S, 522 * S, 200 * S, 550 * S);
+    ctx.bezierCurveTo(308 * S, 522 * S, 366 * S, 426 * S, 346 * S, 294 * S);
+    ctx.strokeStyle = '#361f04';
+    ctx.lineWidth = 31;
+    ctx.stroke();
+    ctx.strokeStyle = goldTube(ctx, 35 * S, 420 * S, 365 * S, 420 * S);
+    ctx.lineWidth = 26;
+    ctx.stroke();
+    ctx.restore();
+
+    // Engraved yoke center beading line
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(54 * S, 294 * S);
+    ctx.bezierCurveTo(34 * S, 426 * S, 92 * S, 522 * S, 200 * S, 550 * S);
+    ctx.bezierCurveTo(308 * S, 522 * S, 366 * S, 426 * S, 346 * S, 294 * S);
+    ctx.setLineDash([5, 11]);
+    ctx.strokeStyle = 'rgba(56, 33, 5, 0.65)';
+    ctx.lineWidth = 2.6;
+    ctx.stroke();
+    ctx.restore();
+
+    // Inner yoke scroll brackets
+    ctx.beginPath();
+    ctx.moveTo(60 * S, 356 * S);
+    ctx.quadraticCurveTo(86 * S, 394 * S, 82 * S, 436 * S);
+    ctx.moveTo(340 * S, 356 * S);
+    ctx.quadraticCurveTo(314 * S, 394 * S, 318 * S, 436 * S);
+    ctx.strokeStyle = goldLinear(ctx, 60 * S, 356 * S, 340 * S, 436 * S);
+    ctx.lineWidth = 7.5;
+    ctx.stroke();
+
+    // Ornate side pivot finials
+    function drawSideFinial(dir) {
+      ctx.save();
+      ctx.translate(CX, 296 * S);
+      ctx.scale(dir, 1);
+      ctx.beginPath();
+      ctx.moveTo(-146 * S, 0);
+      ctx.lineTo(-165 * S, -48 * S);
+      ctx.lineTo(-141 * S, -26 * S);
+      ctx.lineTo(-132 * S, -2 * S);
+      ctx.closePath();
+      ctx.fillStyle = goldLinear(ctx, -165 * S, -48 * S, -132 * S, 0);
+      ctx.fill();
+      ctx.lineWidth = 2.2;
+      ctx.strokeStyle = '#361f04';
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(-151 * S, 0, 18, 0, Math.PI * 2);
+      ctx.fillStyle = goldRoseGrad(ctx, 18);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(-154 * S, -4, 6, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 248, 212, 0.72)';
+      ctx.fill();
+      ctx.restore();
+    }
+    drawSideFinial(1);
+    drawSideFinial(-1);
+
+    // --- B. FLUTED CLASSICAL STEM & SCALLOPED FOOTED PEDESTAL BASE ---
+    ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.55)';
+    ctx.shadowBlur = 12;
+    ctx.shadowOffsetY = 6;
+
+    // Fluted stem
+    ctx.beginPath();
+    ctx.moveTo(185 * S, 504 * S);
+    ctx.lineTo(215 * S, 504 * S);
+    ctx.lineTo(209 * S, 566 * S);
+    ctx.lineTo(191 * S, 566 * S);
+    ctx.closePath();
+    ctx.fillStyle = goldTube(ctx, 185 * S, 535 * S, 215 * S, 535 * S);
+    ctx.fill();
+    ctx.lineWidth = 2.4;
+    ctx.strokeStyle = '#361f04';
+    ctx.stroke();
+
+    // Stem vertical flutes
+    ctx.lineWidth = 2.2;
+    ctx.strokeStyle = 'rgba(54, 31, 4, 0.58)';
+    ctx.beginPath();
+    ctx.moveTo(194 * S, 510 * S); ctx.lineTo(196 * S, 562 * S);
+    ctx.moveTo(206 * S, 510 * S); ctx.lineTo(204 * S, 562 * S);
+    ctx.stroke();
+    ctx.strokeStyle = 'rgba(255, 245, 198, 0.65)';
+    ctx.beginPath();
+    ctx.moveTo(200 * S, 510 * S); ctx.lineTo(200 * S, 562 * S);
+    ctx.stroke();
+
+    // Turned brass collars
+    ctx.beginPath();
+    ctx.ellipse(CX, 542 * S, 19 * S, 6.5 * S, 0, 0, Math.PI * 2);
+    ctx.fillStyle = goldTube(ctx, 181 * S, 542 * S, 219 * S, 542 * S);
+    ctx.fill();
+    ctx.strokeStyle = '#361f04';
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.ellipse(CX, 562 * S, 24 * S, 7 * S, 0, 0, Math.PI * 2);
+    ctx.fillStyle = goldTube(ctx, 176 * S, 562 * S, 224 * S, 562 * S);
+    ctx.fill();
+    ctx.stroke();
+
+    // Cabriole pedestal feet
+    ctx.beginPath();
+    ctx.moveTo(104 * S, 619 * S);
+    ctx.bezierCurveTo(96 * S, 625 * S, 98 * S, 633 * S, 110 * S, 633 * S);
+    ctx.bezierCurveTo(118 * S, 633 * S, 124 * S, 628 * S, 126 * S, 624 * S);
+    ctx.fillStyle = goldTube(ctx, 96 * S, 626 * S, 126 * S, 626 * S);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(296 * S, 619 * S);
+    ctx.bezierCurveTo(304 * S, 625 * S, 302 * S, 633 * S, 290 * S, 633 * S);
+    ctx.bezierCurveTo(282 * S, 633 * S, 276 * S, 628 * S, 274 * S, 624 * S);
+    ctx.fillStyle = goldTube(ctx, 274 * S, 626 * S, 304 * S, 626 * S);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(186 * S, 628 * S);
+    ctx.quadraticCurveTo(200 * S, 637 * S, 214 * S, 628 * S);
+    ctx.fillStyle = goldTube(ctx, 186 * S, 630 * S, 214 * S, 630 * S);
+    ctx.fill();
+    ctx.stroke();
+
+    // Main scalloped baroque pedestal body
+    ctx.beginPath();
+    ctx.moveTo(148 * S, 594 * S);
+    ctx.bezierCurveTo(150 * S, 572 * S, 174 * S, 562 * S, 200 * S, 562 * S);
+    ctx.bezierCurveTo(226 * S, 562 * S, 250 * S, 572 * S, 252 * S, 594 * S);
+    ctx.bezierCurveTo(266 * S, 599 * S, 294 * S, 602 * S, 302 * S, 620 * S);
+    ctx.bezierCurveTo(298 * S, 627 * S, 284 * S, 630 * S, 272 * S, 628 * S);
+    ctx.bezierCurveTo(252 * S, 634 * S, 148 * S, 634 * S, 128 * S, 628 * S);
+    ctx.bezierCurveTo(116 * S, 630 * S, 102 * S, 627 * S, 98 * S, 620 * S);
+    ctx.bezierCurveTo(106 * S, 602 * S, 134 * S, 599 * S, 148 * S, 594 * S);
+    ctx.closePath();
+    ctx.fillStyle = goldLinear(ctx, 98 * S, 562 * S, 302 * S, 634 * S);
+    ctx.fill();
+    ctx.lineWidth = 3.2;
+    ctx.strokeStyle = '#361f04';
+    ctx.stroke();
+    ctx.restore();
+
+    // Pedestal specular molding highlight
+    ctx.beginPath();
+    ctx.moveTo(118 * S, 614 * S);
+    ctx.bezierCurveTo(154 * S, 623 * S, 246 * S, 623 * S, 282 * S, 614 * S);
+    ctx.strokeStyle = 'rgba(255, 244, 194, 0.68)';
+    ctx.lineWidth = 2.6;
+    ctx.stroke();
+
+    // Pedestal botanical ornaments
+    drawAcanthusLeaf(ctx, 176 * S, 606 * S, 174, 0.78);
+    drawAcanthusLeaf(ctx, 224 * S, 606 * S, 6, 0.78);
+    var baseRoses = [
+      [158, 598, 0.72], [200, 604, 0.84], [242, 598, 0.72],
+      [128, 616, 0.65], [272, 616, 0.65]
+    ];
+    for (var br = 0; br < baseRoses.length; br++) {
+      drawBaroqueRose(ctx, baseRoses[br][0] * S, baseRoses[br][1] * S, 0, baseRoses[br][2]);
+    }
+
+    // --- C. HANGING GOLD BEADED CHAINS & BRASS BELLS ---
+    var chainSpecs = [[-62, 36], [-34, 54], [34, 54], [62, 36]];
+    for (var ci = 0; ci < chainSpecs.length; ci++) {
+      var ang = (90 + chainSpecs[ci][0]) * Math.PI / 180;
+      var chX = CX + (151 * S) * Math.cos(ang) * 0.985;
+      var chY = CY + (213 * S) * Math.sin(ang) * 0.985;
+      drawHangingChainAndBell(ctx, chX, chY, (chainSpecs[ci][1] + 8) * S);
+    }
+
+    // --- D. MAIN BAROQUE OVAL FRAME BODY (TRANSPARENT INNER OVAL VIA EVENODD) ---
+    ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.62)';
+    ctx.shadowBlur = 18;
+    ctx.shadowOffsetY = 10;
+
+    ctx.beginPath();
+    ctx.ellipse(CX, CY, 154 * S, 218 * S, 0, 0, Math.PI * 2);
+    ctx.ellipse(CX, CY, INNER_RX, INNER_RY, 0, 0, Math.PI * 2);
+    ctx.fillStyle = goldLinear(ctx, CX - 154 * S, CY - 218 * S, CX + 154 * S, CY + 218 * S);
+    ctx.fill('evenodd');
+    ctx.restore();
+
+    // Outer sculpted dark bronze outline
+    ctx.beginPath();
+    ctx.ellipse(CX, CY, 154 * S, 218 * S, 0, 0, Math.PI * 2);
+    ctx.lineWidth = 3.5;
+    ctx.strokeStyle = '#361f04';
+    ctx.stroke();
+
+    // Recessed antique bronze channel along mid-frame
+    var chGrad = ctx.createLinearGradient(CX - 140 * S, CY - 205 * S, CX + 140 * S, CY + 205 * S);
+    chGrad.addColorStop(0.00, '#5a3609');
+    chGrad.addColorStop(0.30, '#c89635');
+    chGrad.addColorStop(0.55, '#3e2304');
+    chGrad.addColorStop(0.80, '#e2b551');
+    chGrad.addColorStop(1.00, '#2a1603');
+    ctx.beginPath();
+    ctx.ellipse(CX, CY, 137 * S, 203 * S, 0, 0, Math.PI * 2);
+    ctx.lineWidth = 26;
+    ctx.strokeStyle = chGrad;
+    ctx.stroke();
+
+    // Top baroque filigree crest silhouette
+    ctx.beginPath();
+    ctx.moveTo(200 * S, 42 * S);
+    ctx.bezierCurveTo(182 * S, 57 * S, 164 * S, 66 * S, 142 * S, 74 * S);
+    ctx.bezierCurveTo(166 * S, 78 * S, 182 * S, 88 * S, 200 * S, 94 * S);
+    ctx.bezierCurveTo(218 * S, 88 * S, 234 * S, 78 * S, 258 * S, 74 * S);
+    ctx.bezierCurveTo(236 * S, 66 * S, 218 * S, 57 * S, 200 * S, 42 * S);
+    ctx.closePath();
+    ctx.fillStyle = goldLinear(ctx, 142 * S, 42 * S, 258 * S, 94 * S);
+    ctx.fill();
+    ctx.lineWidth = 2.6;
+    ctx.strokeStyle = '#361f04';
+    ctx.stroke();
+
+    // Outer & inner carved pearl bead rings
+    drawBeadRing(ctx, CX, CY, 149 * S, 214 * S, 136, 4.6);
+    drawBeadRing(ctx, CX, CY, 127 * S, 195 * S, 114, 6.2);
+
+    // --- E. BOTANICAL RELIEF ORNAMENTS ALL AROUND THE OVAL ---
+    // Outer scalloped acanthus cresting around perimeter
+    for (var d2 = 5; d2 < 360; d2 += 10) {
+      var rad2 = d2 * Math.PI / 180;
+      var ox = CX + (149 * S) * Math.cos(rad2);
+      var oy = CY + (214 * S) * Math.sin(rad2);
+      var outDeg = Math.atan2(214 * Math.sin(rad2), 149 * Math.cos(rad2)) * 180 / Math.PI;
+      drawAcanthusLeaf(ctx, ox, oy, outDeg, 0.42);
+    }
+
+    // Main ring of acanthus leaves and roses (denser & larger at top/bottom)
+    for (var d = 0; d < 360; d += 10) {
+      var rad = d * Math.PI / 180;
+      var rx = CX + (137 * S) * Math.cos(rad);
+      var ry = CY + (203 * S) * Math.sin(rad);
+      var tanDeg = Math.atan2(203 * Math.cos(rad), -137 * Math.sin(rad)) * 180 / Math.PI;
+      var nearPole = Math.abs(Math.sin(rad));
+      var sc = 0.56 + 0.54 * nearPole * nearPole;
+      if (d % 30 === 0) {
+        drawBaroqueRose(ctx, rx, ry, tanDeg, 0.52 + 0.58 * nearPole * nearPole);
+      } else {
+        drawAcanthusLeaf(ctx, rx, ry, tanDeg + (d % 20 ? -24 : 24), sc * 0.74);
+      }
+    }
+
+    // Top crown baroque scrolls, fan leaves & flanking roses
+    drawBaroqueScroll(ctx, 194 * S, 72 * S, -165, 0.85, 0.85);
+    drawBaroqueScroll(ctx, 206 * S, 72 * S, -15, -0.85, 0.85);
+    var topFan = [-64, -44, -22, 0, 22, 44, 64];
+    for (var tf = 0; tf < topFan.length; tf++) {
+      var aTop = topFan[tf];
+      drawAcanthusLeaf(ctx, CX, 90 * S, -90 + aTop, 1.22 - Math.abs(aTop) / 115);
+    }
+    drawBaroqueRose(ctx, (200 - 48 * 1.12) * S, 98 * S, 0, 0.94);
+    drawBaroqueRose(ctx, (200 + 48 * 1.12) * S, 98 * S, 0, 0.94);
+
+    // Bottom filigree cluster around shutter sapphire
+    drawBaroqueScroll(ctx, 192 * S, 502 * S, 162, 0.75, -0.75);
+    drawBaroqueScroll(ctx, 208 * S, 502 * S, 18, -0.75, -0.75);
+    var botFan = [-62, -32, 32, 62];
+    for (var bf = 0; bf < botFan.length; bf++) {
+      drawAcanthusLeaf(ctx, CX, 492 * S, 90 + botFan[bf], 1.0);
+    }
+    drawBaroqueRose(ctx, (200 - 36 * 1.24) * S, 496 * S, 0, 0.88);
+    drawBaroqueRose(ctx, (200 + 36 * 1.24) * S, 496 * S, 0, 0.88);
+
+    // --- F. GUARANTEE 100% TRANSPARENT INNER OVAL + CRISP RECESSED BEVEL ---
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.ellipse(CX, CY, INNER_RX - 0.5, INNER_RY - 0.5, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
+    // Dark bronze recessed bevel & bright inner gold lip
+    ctx.beginPath();
+    ctx.ellipse(CX, CY, INNER_RX + 3.5, INNER_RY + 3.5, 0, 0, Math.PI * 2);
+    ctx.lineWidth = 7.2;
+    ctx.strokeStyle = '#241403';
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.ellipse(CX, CY, INNER_RX + 0.6, INNER_RY + 0.6, 0, 0, Math.PI * 2);
+    ctx.lineWidth = 3.0;
+    ctx.strokeStyle = 'rgba(255, 240, 179, 0.9)';
+    ctx.stroke();
+
+    // --- G. FACETED ROYAL BLUE SAPPHIRE GEMS (TOP CROWN & BOTTOM SHUTTER) ---
+    drawSapphireGem(ctx, CX, 82 * S, 22.5, 32.5);
+    drawSapphireGem(ctx, CX, 498 * S, 26.5, 37.5);
+
+    ctx.restore();
+  }
+
+  /* =========================================================================
+     4. DRAW FULL LUXURY SCENE BACKGROUND + CANDLE ON OFFSCREEN CAPTURE CANVAS
+     ========================================================================= */
+  function drawCaptureSceneBackground(ctx) {
+    // 1. Draped antique velvet curtains
+    ctx.fillStyle = '#1a0e0a';
+    ctx.fillRect(0, 0, W, H);
+
+    var foldStep = 3;
+    for (var fx = 0; fx < W; fx += foldStep) {
+      var w1 = Math.sin(fx * 0.056) * 0.5 + 0.5;
+      var w2 = Math.sin(fx * 0.132 + 1.2) * 0.5 + 0.5;
+      var v = w1 * 0.68 + w2 * 0.32;
+      var r = Math.round(18 + v * 64);
+      var g = Math.round(9 + v * 34);
+      var b = Math.round(7 + v * 24);
+      ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+      ctx.fillRect(fx, 0, foldStep + 1, H);
+    }
+
+    // Soft top-center gallery spotlight
+    var spot = ctx.createRadialGradient(W * 0.5, H * 0.34, 36, W * 0.5, H * 0.38, W * 0.72);
+    spot.addColorStop(0, 'rgba(225, 175, 105, 0.24)');
+    spot.addColorStop(0.55, 'rgba(130, 82, 42, 0.08)');
+    spot.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = spot;
+    ctx.fillRect(0, 0, W, H);
+
+    // Warm candlelight radiance on right side of curtains
+    var candleX = 796;
+    var flameY = 1098;
+    var cGlow = ctx.createRadialGradient(candleX, flameY, 14, candleX, flameY, 470);
+    cGlow.addColorStop(0, 'rgba(255, 206, 110, 0.44)');
+    cGlow.addColorStop(0.32, 'rgba(235, 138, 42, 0.20)');
+    cGlow.addColorStop(0.68, 'rgba(150, 72, 18, 0.06)');
+    cGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = cGlow;
+    ctx.fillRect(0, 0, W, H);
+
+    // Deep luxury vignette
+    var vig = ctx.createRadialGradient(W * 0.5, H * 0.44, W * 0.28, W * 0.5, H * 0.48, W * 0.92);
+    vig.addColorStop(0, 'rgba(0, 0, 0, 0)');
+    vig.addColorStop(0.62, 'rgba(10, 5, 3, 0.32)');
+    vig.addColorStop(1, 'rgba(5, 2, 1, 0.85)');
+    ctx.fillStyle = vig;
+    ctx.fillRect(0, 0, W, H);
+
+    // 2. Polished dark mahogany vanity table
+    var tableY = Math.round(H * 0.85);
+    var tableH = H - tableY;
+    var tblGrad = ctx.createLinearGradient(0, tableY, 0, H);
+    tblGrad.addColorStop(0.00, '#6d3a1c');
+    tblGrad.addColorStop(0.16, '#4f2711');
+    tblGrad.addColorStop(0.54, '#331709');
+    tblGrad.addColorStop(1.00, '#190a03');
+    ctx.fillStyle = tblGrad;
+    ctx.fillRect(0, tableY, W, tableH);
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(0, tableY, W, tableH);
+    ctx.clip();
+    for (var gy = tableY + 3; gy < H; gy += 6) {
+      ctx.strokeStyle = (gy % 12 === 0) ? 'rgba(255, 195, 125, 0.045)' : 'rgba(12, 4, 1, 0.22)';
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      ctx.moveTo(0, gy);
+      ctx.bezierCurveTo(W * 0.33, gy + Math.sin(gy * 0.16) * 2.5, W * 0.66, gy - Math.cos(gy * 0.13) * 2.5, W, gy);
+      ctx.stroke();
+    }
+    ctx.fillStyle = 'rgba(255, 214, 152, 0.34)';
+    ctx.fillRect(0, tableY, W, 2.5);
+
+    var tblSheen = ctx.createRadialGradient(candleX, tableY + 42, 10, candleX, tableY + 56, 280);
+    tblSheen.addColorStop(0, 'rgba(255, 196, 108, 0.32)');
+    tblSheen.addColorStop(0.5, 'rgba(200, 118, 44, 0.10)');
+    tblSheen.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = tblSheen;
+    ctx.fillRect(0, tableY, W, tableH);
+    ctx.restore();
+
+    // Soft contact shadow under the mirror pedestal base
+    ctx.save();
+    var mShadow = ctx.createRadialGradient(W / 2, 1412, 20, W / 2, 1412, 265);
+    mShadow.addColorStop(0, 'rgba(0, 0, 0, 0.90)');
+    mShadow.addColorStop(0.52, 'rgba(0, 0, 0, 0.54)');
+    mShadow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.translate(W / 2, 1412);
+    ctx.scale(1, 0.16);
+    ctx.fillStyle = mShadow;
+    ctx.beginPath();
+    ctx.arc(0, 0, 265, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
+    // 3. Detailed glowing beeswax candle in turned-brass dish (right side)
+    drawCaptureCandle(ctx, candleX, 1316);
+  }
+
+  function drawCaptureCandle(ctx, cx, dishY) {
+    ctx.save();
+
+    // Dish shadow on mahogany table
+    var ds = ctx.createRadialGradient(cx, dishY + 12, 6, cx, dishY + 12, 74);
+    ds.addColorStop(0, 'rgba(0, 0, 0, 0.85)');
+    ds.addColorStop(0.65, 'rgba(0, 0, 0, 0.40)');
+    ds.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.save();
+    ctx.translate(cx, dishY + 12);
+    ctx.scale(1, 0.26);
+    ctx.fillStyle = ds;
+    ctx.beginPath();
+    ctx.arc(0, 0, 74, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
+    // Brass handle loop
+    ctx.beginPath();
+    ctx.moveTo(cx + 50, dishY - 6);
+    ctx.bezierCurveTo(cx + 72, dishY - 12, cx + 76, dishY + 6, cx + 56, dishY + 10);
+    ctx.strokeStyle = goldTube(ctx, cx + 48, dishY, cx + 74, dishY);
+    ctx.lineWidth = 6.5;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+
+    // Brass saucer dish
+    ctx.beginPath();
+    ctx.ellipse(cx, dishY + 2, 58, 15, 0, 0, Math.PI * 2);
+    ctx.fillStyle = goldTube(ctx, cx - 58, dishY, cx + 58, dishY);
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#2d1a04';
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.ellipse(cx, dishY - 2, 50, 11, 0, 0, Math.PI * 2);
+    ctx.fillStyle = '#5e3c0e';
+    ctx.fill();
+    ctx.lineWidth = 1.4;
+    ctx.strokeStyle = 'rgba(245, 213, 122, 0.85)';
+    ctx.stroke();
+
+    // Turned brass candle cup
+    ctx.beginPath();
+    ctx.moveTo(cx - 28, dishY - 26);
+    ctx.lineTo(cx + 28, dishY - 26);
+    ctx.lineTo(cx + 21, dishY - 2);
+    ctx.quadraticCurveTo(cx, dishY + 4, cx - 21, dishY - 2);
+    ctx.closePath();
+    ctx.fillStyle = goldTube(ctx, cx - 28, dishY - 14, cx + 28, dishY - 14);
+    ctx.fill();
+    ctx.lineWidth = 1.8;
+    ctx.strokeStyle = '#2d1a04';
+    ctx.stroke();
+
+    // Cream beeswax pillar
+    var waxTop = dishY - 156;
+    var waxGrad = ctx.createLinearGradient(cx - 24, waxTop, cx + 24, waxTop);
+    waxGrad.addColorStop(0.00, '#c2b292');
+    waxGrad.addColorStop(0.30, '#fff8e7');
+    waxGrad.addColorStop(0.68, '#eee0c1');
+    waxGrad.addColorStop(1.00, '#968464');
+    ctx.beginPath();
+    ctx.moveTo(cx - 24, waxTop);
+    ctx.lineTo(cx + 24, waxTop);
+    ctx.lineTo(cx + 24, dishY - 26);
+    ctx.quadraticCurveTo(cx, dishY - 21, cx - 24, dishY - 26);
+    ctx.closePath();
+    ctx.fillStyle = waxGrad;
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#7c6b4e';
+    ctx.stroke();
+
+    // Warm translucent glow near top of wax
+    var topWarm = ctx.createLinearGradient(cx, waxTop, cx, waxTop + 50);
+    topWarm.addColorStop(0, 'rgba(255, 184, 77, 0.34)');
+    topWarm.addColorStop(1, 'rgba(255, 184, 77, 0)');
+    ctx.fillStyle = topWarm;
+    ctx.fillRect(cx - 23, waxTop, 46, 50);
+
+    // Melted wax top rim & drips
+    ctx.beginPath();
+    ctx.ellipse(cx, waxTop, 24, 6, 0, 0, Math.PI * 2);
+    ctx.fillStyle = '#f5e6c4';
+    ctx.fill();
+
+    ctx.fillStyle = 'rgba(255, 245, 218, 0.92)';
+    ctx.beginPath();
+    ctx.moveTo(cx - 19, waxTop + 2);
+    ctx.quadraticCurveTo(cx - 21, waxTop + 44, cx - 16, waxTop + 46);
+    ctx.quadraticCurveTo(cx - 12, waxTop + 44, cx - 13, waxTop + 22);
+    ctx.quadraticCurveTo(cx - 9, waxTop + 30, cx - 5, waxTop + 26);
+    ctx.lineTo(cx - 5, waxTop + 4);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = 'rgba(243, 229, 197, 0.88)';
+    ctx.beginPath();
+    ctx.moveTo(cx + 10, waxTop + 3);
+    ctx.quadraticCurveTo(cx + 11, waxTop + 56, cx + 16, waxTop + 60);
+    ctx.quadraticCurveTo(cx + 21, waxTop + 56, cx + 19, waxTop + 24);
+    ctx.lineTo(cx + 22, waxTop + 2);
+    ctx.closePath();
+    ctx.fill();
+
+    // Charred wick
+    ctx.beginPath();
+    ctx.moveTo(cx, waxTop);
+    ctx.quadraticCurveTo(cx + 2, waxTop - 10, cx - 1, waxTop - 17);
+    ctx.strokeStyle = '#24170c';
+    ctx.lineWidth = 2.6;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+
+    // Flame outer halo
+    var fh = ctx.createRadialGradient(cx, waxTop - 44, 4, cx, waxTop - 44, 88);
+    fh.addColorStop(0, 'rgba(255, 214, 120, 0.55)');
+    fh.addColorStop(0.45, 'rgba(255, 146, 38, 0.22)');
+    fh.addColorStop(1, 'rgba(255, 100, 10, 0)');
+    ctx.fillStyle = fh;
+    ctx.beginPath();
+    ctx.arc(cx, waxTop - 44, 88, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Layered teardrop flame
+    var fg = ctx.createRadialGradient(cx, waxTop - 36, 3, cx, waxTop - 44, 38);
+    fg.addColorStop(0.00, '#fffef2');
+    fg.addColorStop(0.36, '#ffd966');
+    fg.addColorStop(0.74, '#ff8c1a');
+    fg.addColorStop(1.00, 'rgba(255, 90, 0, 0)');
+    ctx.beginPath();
+    ctx.moveTo(cx, waxTop - 84);
+    ctx.bezierCurveTo(cx + 18, waxTop - 56, cx + 20, waxTop - 28, cx, waxTop - 15);
+    ctx.bezierCurveTo(cx - 20, waxTop - 28, cx - 18, waxTop - 56, cx, waxTop - 84);
+    ctx.closePath();
+    ctx.fillStyle = fg;
+    ctx.fill();
+
+    // Hot white-blue flame core
+    var cg = ctx.createRadialGradient(cx, waxTop - 26, 2, cx, waxTop - 34, 22);
+    cg.addColorStop(0.00, 'rgba(92, 200, 255, 0.85)');
+    cg.addColorStop(0.48, '#ffffff');
+    cg.addColorStop(1.00, 'rgba(255, 255, 230, 0)');
+    ctx.beginPath();
+    ctx.moveTo(cx, waxTop - 62);
+    ctx.bezierCurveTo(cx + 10, waxTop - 44, cx + 10, waxTop - 26, cx, waxTop - 16);
+    ctx.bezierCurveTo(cx - 10, waxTop - 26, cx - 10, waxTop - 44, cx, waxTop - 62);
+    ctx.closePath();
+    ctx.fillStyle = cg;
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  /* =========================================================================
+     5. CAMERA STREAM (MOBILE-SAFE 1280x720 IDEAL, RAW UNFILTERED)
      ========================================================================= */
   var video = document.getElementById('v');
   var msg = document.getElementById('msg');
@@ -679,8 +1467,8 @@
       var stream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: 'user',
-          width: { ideal: 1920 },
-          height: { ideal: 1080 }
+          width: { ideal: 1280 },
+          height: { ideal: 720 }
         },
         audio: false
       });
@@ -688,14 +1476,14 @@
       video.style.display = 'block';
       msg.style.display = 'none';
     } catch (err) {
-      msg.querySelector('span').textContent = 'Camera access was blocked. Allow camera access for this page and try again.';
+      msg.querySelector('span').textContent = 'Camera is blocked. Allow camera access for this page, then try again.';
       goBtn.textContent = 'Try again';
     }
   }
   goBtn.addEventListener('click', startCam);
 
   /* =========================================================================
-     4. DIRECT CRASH-PROOF SAVE TO DEVICE (NO PREVIEW MODAL)
+     6. DIRECT SAVE TO DEVICE (iOS SHARE SHEET OR DOWNLOAD, NO PREVIEW MODAL)
      ========================================================================= */
   function saveShot(blob) {
     if (!blob) return;
@@ -719,152 +1507,45 @@
       document.body.appendChild(a);
       a.click();
       a.remove();
-      setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 3000);
     } catch (err) {
-      // Prevent any share/download error from crashing the page
+      // Fail gracefully without crashing the renderer
     }
   }
 
   /* =========================================================================
-     5. FULL-SCENE 1200x1920 MEMORY-SAFE RENDER & CAPTURE
+     7. CRASH-PROOF FULL-SCENE SNAP (CANVAS-TO-CANVAS COMPOSITE)
      ========================================================================= */
   var isSnapping = false;
 
-  async function snap() {
-    if (!video.srcObject) { startCam(); return; }
-    var vw = video.videoWidth, vh = video.videoHeight;
+  function snap() {
+    if (!video.srcObject) {
+      startCam();
+      return;
+    }
+    var vw = video.videoWidth;
+    var vh = video.videoHeight;
     if (!vw || !vh || isSnapping) return;
+
     isSnapping = true;
 
-    // Visual shutter flash
+    // Brief white shutter flash inside the mirror oval
     flash.classList.add('on');
     setTimeout(function () { flash.classList.remove('on'); }, 70);
 
-    var canvas = null;
     try {
-      await Promise.all([frameReady, candleReady]);
+      capCtx.clearRect(0, 0, W, H);
+      capCtx.imageSmoothingEnabled = true;
+      capCtx.imageSmoothingQuality = 'high';
 
-      canvas = document.createElement('canvas');
-      canvas.width = EXPORT_W;
-      canvas.height = EXPORT_H;
-      var ctx = canvas.getContext('2d');
-      ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = 'high';
+      // Layer 1: Draped velvet curtains, mahogany table, contact shadow & glowing candle
+      drawCaptureSceneBackground(capCtx);
 
-      // --- LAYER 1: Realistic Draped Dark Velvet Curtains ---
-      ctx.fillStyle = '#1a0e0a';
-      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
-
-      // Soft vertical draped velvet folds
-      var foldStep = 3;
-      for (var fx = 0; fx < EXPORT_W; fx += foldStep) {
-        var wave1 = Math.sin(fx * 0.043) * 0.5 + 0.5;
-        var wave2 = Math.sin(fx * 0.102 + 1.2) * 0.5 + 0.5;
-        var foldVal = wave1 * 0.68 + wave2 * 0.32;
-        var r = Math.round(18 + foldVal * 64);
-        var g = Math.round(9 + foldVal * 34);
-        var b = Math.round(7 + foldVal * 24);
-        ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
-        ctx.fillRect(fx, 0, foldStep + 1, EXPORT_H);
-      }
-
-      // Soft center gallery spotlight on curtains
-      var topLight = ctx.createRadialGradient(EXPORT_W * 0.5, EXPORT_H * 0.34, 48, EXPORT_W * 0.5, EXPORT_H * 0.38, EXPORT_W * 0.72);
-      topLight.addColorStop(0, 'rgba(225, 175, 105, 0.24)');
-      topLight.addColorStop(0.55, 'rgba(130, 82, 42, 0.08)');
-      topLight.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = topLight;
-      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
-
-      // Warm ambient candlelight radiance cast onto curtain from lower right
-      var candleX = 1074, candleFlameY = 1416;
-      var cGlow = ctx.createRadialGradient(candleX, candleFlameY, 18, candleX, candleFlameY, 630);
-      cGlow.addColorStop(0, 'rgba(255, 204, 108, 0.44)');
-      cGlow.addColorStop(0.32, 'rgba(235, 138, 42, 0.20)');
-      cGlow.addColorStop(0.68, 'rgba(150, 72, 18, 0.06)');
-      cGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = cGlow;
-      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
-
-      // Deep velvet vignette
-      var vig = ctx.createRadialGradient(EXPORT_W * 0.5, EXPORT_H * 0.44, EXPORT_W * 0.28, EXPORT_W * 0.5, EXPORT_H * 0.48, EXPORT_W * 0.92);
-      vig.addColorStop(0, 'rgba(0, 0, 0, 0)');
-      vig.addColorStop(0.62, 'rgba(10, 5, 3, 0.32)');
-      vig.addColorStop(1, 'rgba(5, 2, 1, 0.85)');
-      ctx.fillStyle = vig;
-      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
-
-      // --- LAYER 2: Polished Dark Mahogany / Walnut Vanity Table ---
-      var tableY = Math.round(EXPORT_H * 0.85);
-      var tableH = EXPORT_H - tableY;
-      var tblGrad = ctx.createLinearGradient(0, tableY, 0, EXPORT_H);
-      tblGrad.addColorStop(0, '#6d3a1c');
-      tblGrad.addColorStop(0.16, '#4f2711');
-      tblGrad.addColorStop(0.54, '#331709');
-      tblGrad.addColorStop(1, '#190a03');
-      ctx.fillStyle = tblGrad;
-      ctx.fillRect(0, tableY, EXPORT_W, tableH);
-
-      // Subtle wood grain lines
-      ctx.save();
-      ctx.beginPath();
-      ctx.rect(0, tableY, EXPORT_W, tableH);
-      ctx.clip();
-      for (var gy = tableY + 3; gy < EXPORT_H; gy += 6) {
-        ctx.strokeStyle = (gy % 12 === 0) ? 'rgba(255, 195, 125, 0.045)' : 'rgba(12, 4, 1, 0.22)';
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.moveTo(0, gy);
-        ctx.bezierCurveTo(EXPORT_W * 0.33, gy + Math.sin(gy * 0.16) * 3, EXPORT_W * 0.66, gy - Math.cos(gy * 0.13) * 3, EXPORT_W, gy);
-        ctx.stroke();
-      }
-      // Tabletop edge bevel highlight
-      ctx.fillStyle = 'rgba(255, 214, 152, 0.32)';
-      ctx.fillRect(0, tableY, EXPORT_W, 3);
-
-      // Warm candlelight sheen on tabletop
-      var tblSheen = ctx.createRadialGradient(candleX, tableY + 54, 12, candleX, tableY + 72, 372);
-      tblSheen.addColorStop(0, 'rgba(255, 196, 108, 0.32)');
-      tblSheen.addColorStop(0.5, 'rgba(200, 118, 44, 0.10)');
-      tblSheen.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = tblSheen;
-      ctx.fillRect(0, tableY, EXPORT_W, tableH);
-      ctx.restore();
-
-      // Soft contact shadow under mirror pedestal base
-      var mScale = 2.73;
-      var mW = 400 * mScale; // 1092
-      var mH = 640 * mScale; // 1747.2
-      var mX = (EXPORT_W - mW) / 2; // 54
-      var mY = 77;
-
-      ctx.save();
-      var mShadow = ctx.createRadialGradient(EXPORT_W / 2, 1785, 24, EXPORT_W / 2, 1785, 336);
-      mShadow.addColorStop(0, 'rgba(0, 0, 0, 0.88)');
-      mShadow.addColorStop(0.52, 'rgba(0, 0, 0, 0.52)');
-      mShadow.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.translate(EXPORT_W / 2, 1785);
-      ctx.scale(1, 0.16);
-      ctx.fillStyle = mShadow;
-      ctx.beginPath();
-      ctx.arc(0, 0, 336, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-
-      // --- LAYER 3: Glowing Candle on Brass Dish (Right Side of Table) ---
-      if (candleImg.complete && candleImg.naturalWidth) {
-        ctx.drawImage(candleImg, 966, 1392, 216, 396);
-      }
-
-      // --- LAYER 4: RAW Unfiltered Mirrored Camera Feed inside Exact Inner Oval ---
-      var ovalCx = mX + 200 * mScale;
-      var ovalCy = mY + 290 * mScale;
-      var ovalRx = 121 * mScale;
-      var ovalRy = 189 * mScale;
-      var ox = ovalCx - ovalRx;
-      var oy = ovalCy - ovalRy;
-      var ow = ovalRx * 2;
-      var oh = ovalRy * 2;
+      // Layer 2: Raw horizontally mirrored camera frame clipped cleanly to the inner oval
+      var ox = CX - INNER_RX;
+      var oy = CY - INNER_RY;
+      var ow = INNER_RX * 2;
+      var oh = INNER_RY * 2;
 
       var targetAr = ow / oh;
       var cropW = Math.min(vw, vh * targetAr);
@@ -872,424 +1553,54 @@
       var srcX = (vw - cropW) / 2;
       var srcY = (vh - cropH) / 2;
 
-      ctx.save();
-      ctx.beginPath();
-      ctx.ellipse(ovalCx, ovalCy, ovalRx, ovalRy, 0, 0, Math.PI * 2);
-      ctx.clip();
-      ctx.translate(ox + ow, oy);
-      ctx.scale(-1, 1);
-      // Zero filters — completely raw camera capture
-      ctx.drawImage(video, srcX, srcY, cropW, cropH, 0, 0, ow, oh);
-      ctx.restore();
+      capCtx.save();
+      capCtx.beginPath();
+      capCtx.ellipse(CX, CY, INNER_RX + 1, INNER_RY + 1, 0, 0, Math.PI * 2);
+      capCtx.clip();
+      capCtx.translate(ox + ow, oy);
+      capCtx.scale(-1, 1);
+      // Pure raw camera capture — zero filters, zero glare
+      capCtx.drawImage(video, srcX, srcY, cropW, cropH, 0, 0, ow, oh);
+      capCtx.restore();
 
-      // --- LAYER 5: Subtle Edge-Only Recessed Glass Bevel Shadow (Face 100% Clear) ---
-      ctx.save();
-      ctx.beginPath();
-      ctx.ellipse(ovalCx, ovalCy, ovalRx, ovalRy, 0, 0, Math.PI * 2);
-      ctx.clip();
-      ctx.translate(ovalCx, ovalCy);
-      ctx.scale(1, ovalRy / ovalRx);
-      var rimShadow = ctx.createRadialGradient(0, 0, ovalRx * 0.87, 0, 0, ovalRx);
+      // Layer 3: Subtle edge-only recessed rim shadow (face remains 100% untouched)
+      capCtx.save();
+      capCtx.beginPath();
+      capCtx.ellipse(CX, CY, INNER_RX, INNER_RY, 0, 0, Math.PI * 2);
+      capCtx.clip();
+      capCtx.translate(CX, CY);
+      capCtx.scale(1, INNER_RY / INNER_RX);
+      var rimShadow = capCtx.createRadialGradient(0, 0, INNER_RX * 0.88, 0, 0, INNER_RX);
       rimShadow.addColorStop(0, 'rgba(0, 0, 0, 0)');
-      rimShadow.addColorStop(0.65, 'rgba(18, 10, 3, 0.22)');
+      rimShadow.addColorStop(0.68, 'rgba(18, 10, 3, 0.22)');
       rimShadow.addColorStop(1, 'rgba(10, 5, 1, 0.72)');
-      ctx.fillStyle = rimShadow;
-      ctx.beginPath();
-      ctx.arc(0, 0, ovalRx, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
+      capCtx.fillStyle = rimShadow;
+      capCtx.beginPath();
+      capCtx.arc(0, 0, INNER_RX, 0, Math.PI * 2);
+      capCtx.fill();
+      capCtx.restore();
 
-      // --- LAYER 6: Full-Resolution Pre-Rendered Baroque Gold Mirror Frame ---
-      if (frameImg.complete && frameImg.naturalWidth) {
-        ctx.drawImage(frameImg, mX, mY, mW, mH);
-      }
+      // Layer 4: Rock-solid Canvas-to-Canvas composite of the baroque gold mirror frame
+      capCtx.drawImage(frameCanvas, 0, 0);
 
-      // Export visually lossless 0.95 JPEG directly to device and immediately free canvas RAM
-      canvas.toBlob(function (blob) {
+      // Export high-quality JPEG directly to device
+      captureCanvas.toBlob(function (blob) {
         try {
           saveShot(blob);
         } finally {
-          canvas.width = 0;
-          canvas.height = 0;
           isSnapping = false;
         }
       }, 'image/jpeg', 0.95);
     } catch (err) {
-      if (canvas) {
-        canvas.width = 0;
-        canvas.height = 0;
-      }
       isSnapping = false;
     }
   }
 
-  // Outer scalloped acanthus cresting around perimeter
-  for (var d2 = 5; d2 < 360; d2 += 10) {
-    var rad2 = d2 * Math.PI / 180;
-    var ox = CX + 149 * Math.cos(rad2);
-    var oy = CY + 214 * Math.sin(rad2);
-    var outAngle = Math.atan2(214 * Math.sin(rad2), 149 * Math.cos(rad2)) * 180 / Math.PI;
-    use(deco, 'acanthus', ox, oy, outAngle, 0.42);
-  }
+  var shutterBtn = document.getElementById('shutter');
+  shutterBtn.addEventListener('click', snap);
 
-  // Top baroque crown fan, filigree scrolls & roses
-  use(deco, 'scroll', 194, 72, -165, 0.85, 0.85);
-  use(deco, 'scroll', 206, 72, -15, -0.85, 0.85);
-  [-64, -44, -22, 0, 22, 44, 64].forEach(function (a) {
-    use(deco, 'acanthus', 200, 90, -90 + a, 1.24 - Math.abs(a) / 115);
-  });
-  [-48, 48].forEach(function (a) {
-    use(deco, 'rose', 200 + a * 1.12, 98, 0, 0.94);
-  });
-
-  // Bottom ornate filigree cluster around shutter sapphire
-  use(deco, 'scroll', 192, 502, 162, 0.75, -0.75);
-  use(deco, 'scroll', 208, 502, 18, -0.75, -0.75);
-  [-62, -32, 32, 62].forEach(function (a) {
-    use(deco, 'acanthus', 200, 492, 90 + a, 1.02);
-  });
-  [-36, 36].forEach(function (a) {
-    use(deco, 'rose', 200 + a * 1.24, 496, 0, 0.88);
-  });
-
-  // Ornate pedestal base roses & leaves
-  var baseDeco = document.getElementById('baseDeco');
-  use(baseDeco, 'acanthus', 176, 606, 175, 0.78);
-  use(baseDeco, 'acanthus', 224, 606, 5, 0.78);
-  [[158, 598, 0.72], [200, 604, 0.84], [242, 598, 0.72], [128, 616, 0.65], [272, 616, 0.65]].forEach(function (p) {
-    use(baseDeco, 'rose', p[0], p[1], 0, p[2]);
-  });
-
-  // Delicate swaying gold chains with sculpted miniature brass bells
-  var chainsGroup = document.getElementById('chains');
-  [[-62, 36], [-34, 54], [34, 54], [62, 36]].forEach(function (c, idx) {
-    var angle = (90 + c[0]) * Math.PI / 180;
-    var sx = CX + 151 * Math.cos(angle) * 0.985;
-    var sy = CY + 213 * Math.sin(angle) * 0.985;
-    var len = c[1] + 8;
-
-    var g = el(chainsGroup, 'g', { class: 'chain' });
-    g.style.animationDelay = (idx * 0.45) + 's';
-
-    // Linked chain
-    el(g, 'line', {
-      x1: sx, y1: sy, x2: sx, y2: sy + len,
-      stroke: '#e8bc52', 'stroke-width': 2.2, 'stroke-dasharray': '2.6 1.5'
-    });
-    // Flared brass bell body
-    var by = sy + len;
-    el(g, 'path', {
-      d: 'M' + (sx - 2) + ' ' + by +
-         ' C' + (sx - 6) + ' ' + (by + 2) + ' ' + (sx - 7.5) + ' ' + (by + 9) + ' ' + (sx - 8.5) + ' ' + (by + 11.5) +
-         ' L' + (sx + 8.5) + ' ' + (by + 11.5) +
-         ' C' + (sx + 7.5) + ' ' + (by + 9) + ' ' + (sx + 6) + ' ' + (by + 2) + ' ' + (sx + 2) + ' ' + by + ' Z',
-      fill: 'url(#goldVert)', stroke: '#382205', 'stroke-width': 0.9
-    });
-    // Bell rim highlight & clapper bead
-    el(g, 'ellipse', { cx: sx, cy: by + 11.5, rx: 8.5, ry: 2.2, fill: '#f7d97e', stroke: '#382205', 'stroke-width': 0.7 });
-    el(g, 'circle', { cx: sx, cy: by + 13.5, r: 2.1, fill: 'url(#goldMain)', stroke: '#382205', 'stroke-width': 0.6 });
-    el(g, 'circle', { cx: sx - 2, cy: by + 5, r: 1.6, fill: '#fff8d4', opacity: 0.72 });
-  });
-
-  /* =========================================================================
-     2. PRE-RENDER HIGH-RESOLUTION SVG ASSETS (2000x3200 FRAME + CANDLE)
-     ========================================================================= */
-  var EXPORT_W = 2000;
-  var EXPORT_H = 3200;
-
-  var frameImg = new Image();
-  var frameReady = new Promise(function (resolve) {
-    try {
-      var clone = document.getElementById('frameSvg').cloneNode(true);
-      clone.setAttribute('width', String(EXPORT_W));
-      clone.setAttribute('height', String(EXPORT_H));
-      // Strip the animated pulse ring so exported photo looks pure & authentic
-      var pulse = clone.querySelector('.pulse');
-      if (pulse) pulse.remove();
-      var svgStr = new XMLSerializer().serializeToString(clone);
-      var blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
-      var url = URL.createObjectURL(blob);
-      frameImg.onload = function () { URL.revokeObjectURL(url); resolve(true); };
-      frameImg.onerror = function () { URL.revokeObjectURL(url); resolve(false); };
-      frameImg.src = url;
-    } catch (e) {
-      resolve(false);
-    }
-  });
-
-  var candleImg = new Image();
-  var candleReady = new Promise(function (resolve) {
-    try {
-      var cClone = document.getElementById('candleSvg').cloneNode(true);
-      cClone.setAttribute('width', '480');
-      cClone.setAttribute('height', '880');
-      var cStr = new XMLSerializer().serializeToString(cClone);
-      var cBlob = new Blob([cStr], { type: 'image/svg+xml;charset=utf-8' });
-      var cUrl = URL.createObjectURL(cBlob);
-      candleImg.onload = function () { URL.revokeObjectURL(cUrl); resolve(true); };
-      candleImg.onerror = function () { URL.revokeObjectURL(cUrl); resolve(false); };
-      candleImg.src = cUrl;
-    } catch (e) {
-      resolve(false);
-    }
-  });
-
-  /* =========================================================================
-     3. RAW FRONT-CAMERA STREAM (HIGHEST NATIVE RESOLUTION, ZERO FILTERS)
-     ========================================================================= */
-  var video = document.getElementById('v');
-  var msg = document.getElementById('msg');
-  var goBtn = document.getElementById('go');
-  var flash = document.getElementById('flash');
-
-  async function startCam() {
-    try {
-      var stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: 'user',
-          width: { ideal: 4096 },
-          height: { ideal: 2160 }
-        },
-        audio: false
-      });
-      video.srcObject = stream;
-      video.style.display = 'block';
-      msg.style.display = 'none';
-    } catch (err) {
-      msg.querySelector('span').textContent = 'Camera access was blocked. Allow camera access for this page and try again.';
-      goBtn.textContent = 'Try again';
-    }
-  }
-  goBtn.addEventListener('click', startCam);
-
-  /* =========================================================================
-     4. DIRECT LOSSLESS PNG SAVE (NO PREVIEW MODAL)
-     ========================================================================= */
-  function saveLosslessPNG(blob) {
-    if (!blob) return;
-    var now = new Date();
-    var pad = function (n) { return String(n).padStart(2, '0'); };
-    var filename = 'vintage-mirror-' +
-      now.getFullYear() + pad(now.getMonth() + 1) + pad(now.getDate()) + '-' +
-      pad(now.getHours()) + pad(now.getMinutes()) + pad(now.getSeconds()) + '.png';
-
-    var file = new File([blob], filename, { type: 'image/png' });
-    if (/iP(hone|ad|od)/.test(navigator.userAgent) && navigator.canShare && navigator.canShare({ files: [file] })) {
-      navigator.share({ files: [file] }).catch(function () {});
-      return;
-    }
-
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
-  }
-
-  /* =========================================================================
-     5. FULL-SCENE 2000x3200 HIGH-RESOLUTION RENDER & CAPTURE
-     ========================================================================= */
-  var busy = false;
-
-  async function snap() {
-    if (!video.srcObject) { startCam(); return; }
-    var vw = video.videoWidth, vh = video.videoHeight;
-    if (!vw || !vh || busy) return;
-    busy = true;
-
-    // Visual shutter flash
-    flash.classList.add('on');
-    setTimeout(function () { flash.classList.remove('on'); }, 70);
-
-    try {
-      await Promise.all([frameReady, candleReady]);
-
-      var canvas = document.createElement('canvas');
-      canvas.width = EXPORT_W;
-      canvas.height = EXPORT_H;
-      var ctx = canvas.getContext('2d');
-      ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = 'high';
-
-      // --- LAYER 1: Realistic Draped Dark Velvet Curtains ---
-      ctx.fillStyle = '#1a0e0a';
-      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
-
-      // Soft vertical draped velvet folds
-      var foldStep = 4;
-      for (var fx = 0; fx < EXPORT_W; fx += foldStep) {
-        var wave1 = Math.sin(fx * 0.026) * 0.5 + 0.5;
-        var wave2 = Math.sin(fx * 0.061 + 1.2) * 0.5 + 0.5;
-        var foldVal = wave1 * 0.68 + wave2 * 0.32;
-        var r = Math.round(18 + foldVal * 64);
-        var g = Math.round(9 + foldVal * 34);
-        var b = Math.round(7 + foldVal * 24);
-        ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
-        ctx.fillRect(fx, 0, foldStep + 1, EXPORT_H);
-      }
-
-      // Soft center gallery spotlight on curtains
-      var topLight = ctx.createRadialGradient(EXPORT_W * 0.5, EXPORT_H * 0.34, 80, EXPORT_W * 0.5, EXPORT_H * 0.38, EXPORT_W * 0.72);
-      topLight.addColorStop(0, 'rgba(225, 175, 105, 0.24)');
-      topLight.addColorStop(0.55, 'rgba(130, 82, 42, 0.08)');
-      topLight.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = topLight;
-      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
-
-      // Warm ambient candlelight radiance cast onto curtain from lower right
-      var candleX = 1790, candleFlameY = 2360;
-      var cGlow = ctx.createRadialGradient(candleX, candleFlameY, 30, candleX, candleFlameY, 1050);
-      cGlow.addColorStop(0, 'rgba(255, 204, 108, 0.44)');
-      cGlow.addColorStop(0.32, 'rgba(235, 138, 42, 0.20)');
-      cGlow.addColorStop(0.68, 'rgba(150, 72, 18, 0.06)');
-      cGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = cGlow;
-      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
-
-      // Deep velvet vignette
-      var vig = ctx.createRadialGradient(EXPORT_W * 0.5, EXPORT_H * 0.44, EXPORT_W * 0.28, EXPORT_W * 0.5, EXPORT_H * 0.48, EXPORT_W * 0.92);
-      vig.addColorStop(0, 'rgba(0, 0, 0, 0)');
-      vig.addColorStop(0.62, 'rgba(10, 5, 3, 0.32)');
-      vig.addColorStop(1, 'rgba(5, 2, 1, 0.85)');
-      ctx.fillStyle = vig;
-      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
-
-      // --- LAYER 2: Polished Dark Mahogany / Walnut Vanity Table ---
-      var tableY = Math.round(EXPORT_H * 0.85);
-      var tableH = EXPORT_H - tableY;
-      var tblGrad = ctx.createLinearGradient(0, tableY, 0, EXPORT_H);
-      tblGrad.addColorStop(0, '#6d3a1c');
-      tblGrad.addColorStop(0.16, '#4f2711');
-      tblGrad.addColorStop(0.54, '#331709');
-      tblGrad.addColorStop(1, '#190a03');
-      ctx.fillStyle = tblGrad;
-      ctx.fillRect(0, tableY, EXPORT_W, tableH);
-
-      // Subtle wood grain lines
-      ctx.save();
-      ctx.beginPath();
-      ctx.rect(0, tableY, EXPORT_W, tableH);
-      ctx.clip();
-      for (var gy = tableY + 4; gy < EXPORT_H; gy += 9) {
-        ctx.strokeStyle = (gy % 18 === 0) ? 'rgba(255, 195, 125, 0.045)' : 'rgba(12, 4, 1, 0.22)';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(0, gy);
-        ctx.bezierCurveTo(EXPORT_W * 0.33, gy + Math.sin(gy * 0.1) * 5, EXPORT_W * 0.66, gy - Math.cos(gy * 0.08) * 5, EXPORT_W, gy);
-        ctx.stroke();
-      }
-      // Tabletop edge bevel highlight
-      ctx.fillStyle = 'rgba(255, 214, 152, 0.32)';
-      ctx.fillRect(0, tableY, EXPORT_W, 4);
-
-      // Warm candlelight sheen on tabletop
-      var tblSheen = ctx.createRadialGradient(candleX, tableY + 90, 20, candleX, tableY + 120, 620);
-      tblSheen.addColorStop(0, 'rgba(255, 196, 108, 0.32)');
-      tblSheen.addColorStop(0.5, 'rgba(200, 118, 44, 0.10)');
-      tblSheen.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = tblSheen;
-      ctx.fillRect(0, tableY, EXPORT_W, tableH);
-      ctx.restore();
-
-      // Soft contact shadow under mirror pedestal base
-      var mScale = 4.55;
-      var mW = 400 * mScale; // 1820
-      var mH = 640 * mScale; // 2912
-      var mX = (EXPORT_W - mW) / 2; // 90
-      var mY = 128; // Base bottom rests at ~2968 on table
-
-      ctx.save();
-      var mShadow = ctx.createRadialGradient(EXPORT_W / 2, 2975, 40, EXPORT_W / 2, 2975, 560);
-      mShadow.addColorStop(0, 'rgba(0, 0, 0, 0.88)');
-      mShadow.addColorStop(0.52, 'rgba(0, 0, 0, 0.52)');
-      mShadow.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.translate(EXPORT_W / 2, 2975);
-      ctx.scale(1, 0.16);
-      ctx.fillStyle = mShadow;
-      ctx.beginPath();
-      ctx.arc(0, 0, 560, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-
-      // --- LAYER 3: Glowing Candle on Brass Dish (Right Side of Table) ---
-      if (candleImg.complete && candleImg.naturalWidth) {
-        var cDrawW = 360;
-        var cDrawH = 660;
-        var cDrawX = 1610;
-        var cDrawY = 2320;
-        ctx.drawImage(candleImg, cDrawX, cDrawY, cDrawW, cDrawH);
-      }
-
-      // --- LAYER 4: RAW Unfiltered Mirrored Camera Feed inside Exact Inner Oval ---
-      var ovalCx = mX + 200 * mScale;
-      var ovalCy = mY + 290 * mScale;
-      var ovalRx = 121 * mScale;
-      var ovalRy = 189 * mScale;
-      var ox = ovalCx - ovalRx;
-      var oy = ovalCy - ovalRy;
-      var ow = ovalRx * 2;
-      var oh = ovalRy * 2;
-
-      // Exact object-fit: cover math preserving full native sensor sharpness
-      var targetAr = ow / oh;
-      var cropW = Math.min(vw, vh * targetAr);
-      var cropH = cropW / targetAr;
-      var srcX = (vw - cropW) / 2;
-      var srcY = (vh - cropH) / 2;
-
-      ctx.save();
-      ctx.beginPath();
-      ctx.ellipse(ovalCx, ovalCy, ovalRx, ovalRy, 0, 0, Math.PI * 2);
-      ctx.clip();
-      ctx.translate(ox + ow, oy);
-      ctx.scale(-1, 1);
-      // Zero filters — completely raw camera capture
-      ctx.drawImage(video, srcX, srcY, cropW, cropH, 0, 0, ow, oh);
-      ctx.restore();
-
-      // --- LAYER 5: Subtle Edge-Only Recessed Glass Bevel Shadow (Face 100% Clear) ---
-      ctx.save();
-      ctx.beginPath();
-      ctx.ellipse(ovalCx, ovalCy, ovalRx, ovalRy, 0, 0, Math.PI * 2);
-      ctx.clip();
-      ctx.translate(ovalCx, ovalCy);
-      ctx.scale(1, ovalRy / ovalRx);
-      var rimShadow = ctx.createRadialGradient(0, 0, ovalRx * 0.87, 0, 0, ovalRx);
-      rimShadow.addColorStop(0, 'rgba(0, 0, 0, 0)');
-      rimShadow.addColorStop(0.65, 'rgba(18, 10, 3, 0.22)');
-      rimShadow.addColorStop(1, 'rgba(10, 5, 1, 0.72)');
-      ctx.fillStyle = rimShadow;
-      ctx.beginPath();
-      ctx.arc(0, 0, ovalRx, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-
-      // --- LAYER 6: Full-Resolution Pre-Rendered Baroque Gold Mirror Frame ---
-      if (frameImg.complete && frameImg.naturalWidth) {
-        ctx.drawImage(frameImg, mX, mY, mW, mH);
-      }
-
-      // Export lossless PNG directly to device
-      canvas.toBlob(function (blob) {
-        saveLosslessPNG(blob);
-        busy = false;
-      }, 'image/png');
-    } catch (err) {
-      busy = false;
-    }
-  }
-
-  var shutter = document.getElementById('shutter');
-  shutter.addEventListener('click', snap);
-  shutter.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      snap();
-    }
-  });
+  // Render the baroque gold mirror frame once on load
+  renderMirrorFrame();
 })();
 </script>
 </body>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vintage Mirror</title>
+<style>
+:root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden}
+body{position:relative;font-family:Georgia,"Times New Roman",serif;color:#f3e3b8;background:#3a2f26}
+.curtain{position:absolute;inset:0;background:
+ radial-gradient(ellipse at 50% 38%,#c9a56a55 0%,#0000 60%),
+ repeating-linear-gradient(90deg,#2b2218 0 26px,#5a4a37 48px,#7a664b 60px,#4a3b2b 80px,#2b2218 104px);}
+.curtain::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#0000 40%,#000b 100%)}
+.table{position:absolute;left:0;right:0;bottom:0;height:15%;background:
+ repeating-linear-gradient(92deg,#0000 0 7px,#0003 8px,#0000 10px),
+ linear-gradient(#b07a45,#7a4a24 45%,#4a2a14);box-shadow:inset 0 6px 14px #0008,0 -3px 0 #d9a86a55}
+h1{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);left:0;right:0;text-align:center;margin:0;font-style:italic;font-weight:400;font-size:clamp(24px,6vw,36px);color:#f6d57a;text-shadow:0 2px 10px #000;letter-spacing:.03em;z-index:3}
+.candle{position:absolute;right:4%;bottom:13%;width:34px;z-index:1;display:flex;flex-direction:column;align-items:center}
+.flame{width:10px;height:20px;border-radius:50% 50% 50% 50%/70% 70% 30% 30%;background:radial-gradient(#fff,#ffd36a 50%,#ff8a1f);box-shadow:0 0 30px 14px #ffb04766;animation:fl 1.4s infinite alternate ease-in-out}
+.wax{width:16px;height:60px;background:linear-gradient(90deg,#d9cdb0,#fff6df,#cbbd9c);border-radius:2px}
+.dish{width:34px;height:8px;border-radius:50%;background:linear-gradient(#c9a44a,#6e4a12)}
+@keyframes fl{to{transform:scale(1.08,.94) translateX(1px);opacity:.9}}
+.wrap{position:absolute;left:50%;transform:translateX(-50%);bottom:9%;height:min(82vh,154vw);aspect-ratio:400/640;z-index:2;transition:transform .6s;transform-origin:50% 100%}
+.wrap.tilt{transform:translateX(-50%) perspective(1100px) rotateY(22deg)}
+.wrap>*{position:absolute}
+.shadow{left:12%;right:12%;bottom:-1%;height:5%;background:radial-gradient(#000a,#0000 70%)}
+.cam{left:19.5%;top:15.6%;width:61%;height:59.4%;border-radius:50%;overflow:hidden;background:radial-gradient(ellipse at 30% 20%,#d9b87a55,#0000 45%),linear-gradient(90deg,#1d160f,#4a3b2b 30%,#2a2118 55%,#5a4a37 78%,#1d160f),#0a0c10}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;transition:opacity .35s;z-index:3;pointer-events:none}#flash.on{opacity:.95;transition:none}
+#shutter{pointer-events:auto;cursor:pointer;outline:none}#shutter:focus-visible .ring{stroke:#fff;stroke-width:3}
+.pulse{fill:none;stroke:#6fd4ff;stroke-width:2;transform-box:fill-box;transform-origin:center;animation:pu 2s ease-out infinite}
+@keyframes pu{from{transform:scale(.8);opacity:.9}to{transform:scale(2);opacity:0}}
+[hidden]{display:none!important}
+.modal{position:fixed;inset:0;background:#000e;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:16px;text-align:center;font-style:italic}
+.modal img{max-height:66vh;max-width:88vw;border-radius:14px;box-shadow:0 10px 40px #000}
+.modal .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);display:none;filter:contrast(1.05) saturate(1.05) sepia(.12)}
+.glare{inset:0;background:linear-gradient(112deg,#fff6 0%,#fff0 22%,#fff0 62%,#fff2 78%,#fff0 100%),radial-gradient(ellipse at 50% 50%,#0000 55%,#000a 100%);pointer-events:none;position:absolute}
+svg.fr{left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.msg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:16%;font-size:15px;line-height:1.4;font-style:italic;color:#e8d6a4;z-index:1}
+button{font:inherit;font-size:16px;padding:10px 22px;border-radius:999px;border:2px solid #6e4a12;background:linear-gradient(#f6d57a,#b8862b);color:#2a1a04;cursor:pointer;box-shadow:0 3px 10px #0008}
+button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.tiltbtn{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);left:0;right:0;margin:auto;width:max-content;z-index:4;font-size:14px;padding:8px 18px}
+.chain{transform-box:fill-box;transform-origin:50% 0;animation:sw 3.6s ease-in-out infinite alternate}
+@keyframes sw{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+@media (prefers-reduced-motion:reduce){.chain,.flame,.pulse{animation:none}.wrap{transition:none}}
+</style>
+</head>
+<body>
+<div class="curtain"></div>
+<div class="table"></div>
+<div class="candle"><div class="flame"></div><div class="wax"></div><div class="dish"></div></div>
+<h1>Vintage Mirror</h1>
+<div class="wrap" id="wrap">
+  <div class="shadow"></div>
+  <div class="cam">
+    <video id="v" autoplay playsinline muted></video>
+    <div class="msg" id="msg"><span>Step up and take a look.</span><button id="go">Open mirror</button></div>
+    <div id="flash"></div><div class="glare"></div>
+  </div>
+  <svg class="fr" viewBox="0 0 400 640" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#fff0a8"/><stop offset=".25" stop-color="#e7b84a"/><stop offset=".5" stop-color="#8a5a14"/><stop offset=".72" stop-color="#d9a63a"/><stop offset="1" stop-color="#5a3a0c"/>
+      </linearGradient>
+      <linearGradient id="gv" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#6e4a12"/><stop offset=".35" stop-color="#ffe9a0"/><stop offset=".6" stop-color="#c8923a"/><stop offset="1" stop-color="#5a3a0c"/>
+      </linearGradient>
+      <radialGradient id="gem" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#e6fbff"/><stop offset=".4" stop-color="#37b7ee"/><stop offset="1" stop-color="#07507f"/></radialGradient>
+      <filter id="metal" x="-10%" y="-10%" width="120%" height="120%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="1.6" result="b"/>
+        <feSpecularLighting in="b" surfaceScale="5" specularConstant="1.1" specularExponent="22" lighting-color="#fff4c8" result="s"><feDistantLight azimuth="235" elevation="48"/></feSpecularLighting>
+        <feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/>
+        <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" result="n"/>
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 .3  0 0 0 0 .2  0 0 0 0 .05  0 0 0 .35 0" result="n2"/>
+        <feComposite in="n2" in2="SourceAlpha" operator="in" result="n3"/>
+        <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="n3"/><feMergeNode in="s2"/></feMerge>
+        <feDropShadow dx="1" dy="3" stdDeviation="2.5" flood-color="#000" flood-opacity=".5"/>
+      </filter>
+      <symbol id="leaf" overflow="visible"><path d="M0 0C9-12 26-12 38 0 26 12 9 12 0 0Z" fill="url(#g)" stroke="#3d290a" stroke-width="1"/><path d="M3 0H33" stroke="#3d290a" stroke-width="1" opacity=".7"/></symbol>
+      <symbol id="rose" overflow="visible"><circle r="11" fill="url(#g)" stroke="#3d290a"/><path d="M0 0m-2 0a2 2 0 1 1 4 0a4 4 0 1 1-8 0a7 7 0 1 1 14 0" fill="none" stroke="#3d290a" stroke-width="1.3"/></symbol>
+    </defs>
+
+    <g filter="url(#metal)">
+      <path d="M58 300C38 430 95 520 200 548C305 520 362 430 342 300" fill="none" stroke="url(#gv)" stroke-width="11" stroke-linecap="round"/>
+      <path d="M58 300C38 430 95 520 200 548C305 520 362 430 342 300" fill="none" stroke="#3d290a" stroke-width="1" stroke-dasharray="2 5" opacity=".6"/>
+      <path d="M52 300l-14-48 22 22zM348 300l14-48-22 22z" fill="url(#g)" stroke="#3d290a"/>
+      <path d="M186 500h28l-5 62h-18z" fill="url(#gv)" stroke="#3d290a"/>
+      <ellipse cx="200" cy="540" rx="16" ry="6" fill="url(#g)" stroke="#3d290a"/>
+      <path d="M150 600C150 574 178 562 200 562S250 574 250 600C262 604 292 604 296 622C270 636 130 636 104 622C108 604 138 604 150 600Z" fill="url(#g)" stroke="#3d290a" stroke-width="1.5"/>
+      <g id="baseDeco"></g>
+      <path fill-rule="evenodd" d="M200 75a150 215 0 1 0 .01 0ZM200 100a122 190 0 1 1-.01 0Z" fill="url(#g)" stroke="#3d290a" stroke-width="1.5"/>
+      <ellipse cx="200" cy="290" rx="136" ry="203" fill="none" stroke="#3d290a" stroke-width="1" opacity=".6"/>
+      <ellipse cx="200" cy="290" rx="128" ry="196" fill="none" stroke="url(#g)" stroke-width="7" stroke-dasharray="0.1 6.2" stroke-linecap="round"/>
+      <ellipse cx="200" cy="290" rx="146" ry="211" fill="none" stroke="url(#g)" stroke-width="4" stroke-dasharray="0.1 5" stroke-linecap="round"/>
+      <ellipse cx="200" cy="290" rx="123" ry="191" fill="none" stroke="#2a1a04" stroke-width="3"/><ellipse cx="200" cy="290" rx="120.5" ry="188.5" fill="none" stroke="#ffe9a0" stroke-width="1.4" opacity=".8"/><g id="deco"></g>
+    </g>
+
+    <g id="gems">
+      <ellipse cx="200" cy="82" rx="14" ry="19" fill="url(#g)" stroke="#3d290a" stroke-width="1.5"/>
+      <ellipse cx="200" cy="82" rx="9" ry="14" fill="url(#gem)" stroke="#bfefff" stroke-width=".8"/>
+      <ellipse cx="196" cy="76" rx="3" ry="5" fill="#fff" opacity=".7"/>
+      <g id="shutter" role="button" tabindex="0" aria-label="Take photo"><circle cx="200" cy="498" r="30" fill="#0000"/><ellipse class="pulse" cx="200" cy="498" rx="16" ry="21"/><ellipse class="ring" cx="200" cy="498" rx="16" ry="21" fill="url(#g)" stroke="#3d290a" stroke-width="1.5"/>
+      <ellipse cx="200" cy="498" rx="11" ry="16" fill="url(#gem)" stroke="#bfefff" stroke-width=".8"/>
+      <ellipse cx="195" cy="491" rx="3" ry="5" fill="#fff" opacity=".75"/></g>
+    </g>
+    <g id="chains"></g>
+  </svg>
+</div>
+<div class="modal" id="modal" hidden><img id="shot" alt="Your photo"><span id="st">Press and hold the photo to save it.</span><div class="row"><button id="save">Save to gallery</button><button id="mail">Email to me</button><button id="share">Share</button><button id="close">Back to mirror</button></div></div>
+<button class="tiltbtn" id="tilt" aria-pressed="false">Tilt mirror</button>
+<script>
+var W3_KEY='YOUR_ACCESS_KEY';
+var NS='http://www.w3.org/2000/svg';
+function el(p,t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
+function use(p,id,x,y,r,s){var u=el(p,'use',{href:'#'+id});u.setAttribute('transform','translate('+x+' '+y+') rotate('+r+') scale('+s+')');return u}
+var deco=document.getElementById('deco'),CX=200,CY=290;
+for(var d=0;d<360;d+=10){
+  var t=d*Math.PI/180, x=CX+137*Math.cos(t), y=CY+203*Math.sin(t);
+  var tan=Math.atan2(203*Math.cos(t),-137*Math.sin(t))*180/Math.PI;
+  var near=Math.abs(Math.sin(t)); var s=.55+.55*near*near;
+  if(d%30===0){use(deco,'rose',x,y,tan,.5+.6*near*near)}
+  else{use(deco,'leaf',x,y,tan+(d%20?-24:24),s*.75)}
+}
+for(var d2=5;d2<360;d2+=10){var t2=d2*Math.PI/180;use(deco,'leaf',CX+147*Math.cos(t2),CY+212*Math.sin(t2),Math.atan2(212*Math.sin(t2),147*Math.cos(t2))*180/Math.PI,.4)}
+[-62,-42,-22,0,22,42,62].forEach(function(a){use(deco,'leaf',200,92,-90+a,1.25-Math.abs(a)/110)});
+[-48,48].forEach(function(a){use(deco,'rose',200+a*1.1,100,0,.9)});
+[-60,-30,30,60].forEach(function(a){use(deco,'leaf',200,492,90+a,1.0)});
+[-34,34].forEach(function(a){use(deco,'rose',200+a*1.25,495,0,.85)});
+[[160,600],[200,606],[240,600],[130,618],[270,618]].forEach(function(p){use(document.getElementById('baseDeco'),'rose',p[0],p[1],0,.7)});
+var ch=document.getElementById('chains');
+[[-62,34],[-34,52],[34,52],[62,34]].forEach(function(c,i){
+  var a=(90+c[0])*Math.PI/180,x=CX+150*Math.cos(a)*.98,y=CY+211*Math.sin(a)*.98,len=c[1]+8;
+  var g=el(ch,'g',{class:'chain'});g.style.animationDelay=(i*.4)+'s';
+  el(g,'line',{x1:x,y1:y,x2:x,y2:y+len,stroke:'#e7b84a','stroke-width':2.4,'stroke-dasharray':'2.6 1.6'});
+  el(g,'circle',{cx:x,cy:y+len+6,r:6,fill:'url(#g)',stroke:'#3d290a'});
+  el(g,'circle',{cx:x-1.8,cy:y+len+4,r:1.8,fill:'#fff',opacity:.7});
+});
+var v=document.getElementById('v'),msg=document.getElementById('msg'),go=document.getElementById('go');
+async function startCam(){
+  try{
+    var s=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false});
+    v.srcObject=s;v.style.display='block';msg.style.display='none';
+  }catch(e){
+    msg.querySelector('span').textContent='Camera is blocked. Allow camera access for this page, then try again.';
+    go.textContent='Try again';
+  }
+}
+go.addEventListener('click',startCam);
+var modal=document.getElementById('modal'),shot=document.getElementById('shot'),flash=document.getElementById('flash'),blob=null;
+function snap(){
+  if(!v.srcObject){startCam();return}
+  var w=v.videoWidth,h=v.videoHeight;if(!w)return;
+  var ar=244/380,cw=Math.min(w,h*ar),ch=cw/ar,sx=(w-cw)/2,sy=(h-ch)/2;
+  var c=document.createElement('canvas');c.width=800;c.height=Math.round(800/ar);
+  var x=c.getContext('2d');x.fillStyle='#1b140d';x.fillRect(0,0,c.width,c.height);
+  x.save();x.beginPath();x.ellipse(c.width/2,c.height/2,c.width/2-16,c.height/2-16,0,0,7);x.clip();
+  x.translate(c.width,0);x.scale(-1,1);x.drawImage(v,sx,sy,cw,ch,0,0,c.width,c.height);x.restore();
+  x.lineWidth=18;x.strokeStyle='#d9a63a';x.beginPath();x.ellipse(c.width/2,c.height/2,c.width/2-12,c.height/2-12,0,0,7);x.stroke();
+  flash.classList.add('on');setTimeout(function(){flash.classList.remove('on')},60);
+  shot.src=c.toDataURL('image/jpeg',.92);
+  c.toBlob(function(b){blob=b;sendMail(true)},'image/jpeg',.92);
+  setTimeout(function(){modal.hidden=false},350);
+}
+function saveShot(){
+  if(!blob)return;
+  var a=document.createElement('a'),n=new Date(),p=function(x){return String(x).padStart(2,'0')};
+  a.href=URL.createObjectURL(blob);
+  a.download='mirror-'+n.getFullYear()+p(n.getMonth()+1)+p(n.getDate())+'-'+p(n.getHours())+p(n.getMinutes())+p(n.getSeconds())+'.jpg';
+  document.body.appendChild(a);a.click();a.remove();
+}
+document.getElementById('save').addEventListener('click',saveShot);
+function getKey(ask){
+  if(W3_KEY!=='YOUR_ACCESS_KEY')return W3_KEY;
+  var k='';try{k=localStorage.getItem('w3key')||''}catch(e){}
+  if(!k&&ask){k=(prompt('Paste your Web3Forms access key')||'').trim();try{if(k)localStorage.setItem('w3key',k)}catch(e){}}
+  return k;
+}
+async function sendMail(auto){
+  var st=document.getElementById('st'),key=getKey(!auto);
+  if(!key||!blob)return;
+  st.textContent='Emailing photo...';
+  try{
+    var fd=new FormData();fd.append('access_key',key);fd.append('subject','New photo from your Vintage Mirror');
+    fd.append('from_name','Vintage Mirror');fd.append('message','Photo taken in your vintage mirror.');
+    fd.append('attachment',blob,'mirror-photo.jpg');
+    var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{Accept:'application/json'},body:fd});
+    var j=await r.json();
+    st.textContent=j.success?'Photo emailed to you.':('Email failed: '+(j.message||'unknown error'));
+  }catch(e){st.textContent='Email failed. Check your internet and try again.'}
+}
+document.getElementById('mail').addEventListener('click',function(){sendMail(false)});
+var sh=document.getElementById('shutter');
+sh.addEventListener('click',snap);
+sh.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();snap()}});
+document.getElementById('close').addEventListener('click',function(){modal.hidden=true});
+document.getElementById('share').addEventListener('click',function(){
+  try{var f=new File([blob],'mirror-photo.jpg',{type:'image/jpeg'});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:'My mirror photo'}).catch(function(){})}}catch(e){}
+});
+document.getElementById('tilt').addEventListener('click',function(){
+  var on=document.getElementById('wrap').classList.toggle('tilt');
+  this.setAttribute('aria-pressed',on);
+});
+</script>
+</body>
+</html>
